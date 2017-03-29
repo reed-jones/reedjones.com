@@ -29,13 +29,13 @@ function makeDivs(){
 	aboutMe.appendChild(aboutMe_l);
 
 	setTimeout(() => {
-		title_r.style.top =  "0";
- 		title_t.style.left =  "0";
+		title_r.style.bottom =  "-100%";
+ 		title_t.style.right =  "0";
 
- 		subtitle_t.style.left = "0";
- 		subtitle_l.style.bottom = "0";
+ 		// subtitle_t.style.left = "0";
+ 		// subtitle_l.style.bottom = "0";
 
- 		aboutMe_t.style.right = "0";
+ 		aboutMe_t.style.left = "66%";
  		aboutMe_l.style.bottom = "0";
 	}, 10);
 }

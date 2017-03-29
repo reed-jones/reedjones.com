@@ -5,6 +5,8 @@
 // #BA6E6E rgba(186, 110, 110, 1)
 .hero {
 	$border-colour: rgba(171, 155, 150, 0.5);
+	$border-width: 3px;
+	$border-width-big: $border-width* 2; 
 	// min-height: 100vh;
 	// width: 100%;
 	margin: 0 auto;
@@ -12,6 +14,7 @@
 	position:relative;
 	z-index:1;
 	color:rgba(0, 0, 0, 0.75);
+
 
 	// background colour (faded)
 	&:before {
@@ -26,86 +29,126 @@
 		z-index: -1;
 	}
 	#title {
-		$border-width: 5px;
-		$animation-time: 1s;
+		$animation-time: 1.5s;
 	  	position: relative;
 
 		h1 {
-			padding: 4em 2em;
+			padding: 1.5em 2em 0.5em 1.3em;
+			margin:0;
+			font-size: 2.3em;
 		}
 
 		.titleBorderRight {
-			border-right: $border-width solid $border-colour;
+			border-left: $border-width-big solid $border-colour;
+			// border-right: $border-width solid $border-colour;
 			position: absolute;
-			top: 100%;
+			bottom: 100%;
 			right: 0;
-		  	bottom: 0;
+			left:0;
+		  	top: 0;
 		  	// should look into cubic-bezier transitions... http://cubic-bezier.com
-			transition: top $animation-time ease-in;
+			transition: bottom $animation-time ease-out;
+			z-index: -1;
 		}
 
 		.titleBorderTop {
-			border-top: $border-width solid $border-colour;
+			border-top: $border-width-big solid $border-colour;
 			position: absolute;
 			top: 0;
-			right: $border-width;
-			left: 100%;
-			transition: left ($animation-time*2.5) ease-out $animation-time;
+			left: $border-width-big;
+			right: 100%;
+			transition: right ($animation-time*2.5) ease-out;
+			z-index: -1;
 		}
 	}
 	#subtitle{
-		$border-width: 4px;
-
 	  	position: relative;
-
+	  	margin-top: -$border-width;
 		h2 {
-			padding: 3em 2em;
+			padding: 0 2em 1.5em 2em;
+			margin:0;
 		}
 
 		.subtitleBorderTop {
-			border-top: $border-width solid $border-colour;
+			// border-top: $border-width-big solid $border-colour;
 			position: absolute;
 			top: 0;
 			left: 100%;
 			right: 0;
 			transition: left 2.5s ease-in 1s;
+			z-index: -1;
 		}
 
 		.subtitleBorderLeft {
-			border-right: $border-width solid $border-colour;
+			border-left: $border-width-big solid $border-colour;
 			position: absolute;
 			top: $border-width;
 			left: 0;
-		  	bottom: 100%;//
+		  	bottom: 100%;
 			transition: bottom 1s linear 3.5s;
+			z-index: -1;
 		}
 	}
 	#about-me{
-
-		$border-width: 4px;
-		$animation-start-time: 4.5s;
+		$animation-start-time: 1.5s;
 	  	position: relative;
+	  	padding-top: 1em;
 
 		p {
-			padding: 2em;
+			padding: 1em 2em;
 		}
 
 		.aboutMeBorderTop {
 			border-top: $border-width solid $border-colour;
 			position: absolute;
 			top: 0;
-			left: 0;
-			right: 100%;
-			transition: right 2.5s ease-in $animation-start-time;
+			left: 100%;
+			right: 0;
+			transition: left 1.5s ease-in $animation-start-time;
+			z-index: -1;
 		}
 
 		.aboutMeBorderLeft {
 			border-right: $border-width solid $border-colour;
+			// border-right: $border-width solid $border-colour;
 			position: absolute;
 			top: $border-width;
 			left: 0;
+			right:0;
 		  	bottom: 100%;
 			transition: bottom 3s ease-in $animation-start-time;
+			z-index: -1;
 		}
 	}
+
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color:#A63A50;
+		opacity: 0.8;
+		transition: 0.5s;
+		// box-shadow: 3px 3px 5px #888888;
+		padding:2px 4px;
+		// margin: 0 2px;
+		// background-color: rgba(161, 103, 74, 0.2);
+	}
+	a:visited {
+		color:#BA6E6E;
+		transition: 0.5s;
+		box-shadow:  10px 10px 5px #888888;
+	}
+	a:hover {
+		opacity: 1;
+		color: #A63A50;
+		// color: #AB9B96;
+		transition: 0.3s;
+		box-shadow:  3px 3px 5px #888888;
+		padding:2px 4px;
+	}
 }
+
+// #A63A50 rgba(166, 58, 80, 1)
+// #F0E7D8 rgba(240, 231, 216, 1)
+// #AB9B96 rgba(171, 155, 150, 1)
+// #A1674A rgba(161, 103, 74, 1)
+// #BA6E6E rgba(186, 110, 110, 1)
