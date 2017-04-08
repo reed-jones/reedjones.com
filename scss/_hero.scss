@@ -9,17 +9,26 @@
 // #A1674A rgba(161, 103, 74, 1)
 // #BA6E6E rgba(186, 110, 110, 1)
 .hero {
-	$border-colour: rgba(171, 155, 150, 0.5);
+	// $body-colour: #A1674A;
+	// $border-colour: rgba(171, 155, 150, 0.5);
+	// $border-width: 3px;
+	// $border-width-big: $border-width* 2; 
+	// $link-colour: #A63A50;
+	// $link-colour-visited: #BA6E6E;
+
+
+	$body-colour: #FFFCF7;
+	$border-colour: rgba(44, 62, 80, 0.4);
 	$border-width: 3px;
 	$border-width-big: $border-width* 2; 
-	// min-height: 100vh;
-	// width: 100%;
+	$link-colour: #2c3e50;
+	$link-colour-visited: #818B9B;
+
 	margin: 0 auto;
 	padding: 10em;
 	position:relative;
 	z-index:1;
-	color:rgba(0, 0, 0, 0.75);
-
+	color:rgba(48, 53, 55, .9);
 
 	// background colour (faded)
 	&:before {
@@ -29,13 +38,14 @@
 		left:0;
 		width: 100%;
 		height: 100%;
-		opacity: 0.2;
-		background-color: #A1674A;
+		opacity: 0.6;
+		background-color: $body-colour;
 		z-index: -1;
 	}
 	#title {
-		$animation-time: 1.5s;
+		$animation-time: 2s;
 	  	position: relative;
+	  	color: #2c3e50;
 
 		h1 {
 			padding: 1.5em 2em 0.5em 1.3em;
@@ -52,7 +62,7 @@
 			left:0;
 		  	top: 0;
 		  	// should look into cubic-bezier transitions... http://cubic-bezier.com
-			transition: bottom 2s ease-out;
+			transition: bottom $animation-time ease-out;
 			z-index: -1;
 		}
 
@@ -62,20 +72,21 @@
 			top: 0;
 			left: $border-width-big;
 			right: 100%;
-			transition: right 4s ease-out;
+			transition: right $animation-time*2 ease-out;
 			z-index: -1;
 		}
 	}
 	#subtitle{
 	  	position: relative;
 	  	margin-top: -$border-width;
+	  	color: #2c3e50;
+
 		h2 {
 			padding: 0 2em 1.5em 2em;
 			margin:0;
 		}
 	}
 	#about-me{
-		$animation-start-time: 1.5s;
 	  	position: relative;
 	  	padding-top: 1em;
 
@@ -89,7 +100,7 @@
 			top: 0;
 			left: 100%;
 			right: 0;
-			transition: left 2.5s ease-out $animation-start-time;
+			transition: left 2.5s ease-out 1.5s;
 			z-index: -1;
 		}
 
@@ -101,7 +112,7 @@
 			left: 0;
 			right:0;
 		  	bottom: 100%;
-			transition: bottom 3s ease-out $animation-start-time;
+			transition: bottom 3s ease-out 1.5s;
 			z-index: -1;
 		}
 	}
@@ -109,25 +120,26 @@
 	a.highlight {
 		text-decoration: none;
 		font-weight: bold;
-		color:#A63A50;
+		color:$link-colour;
 		opacity: 0.8;
 		transition: 0.5s;
 		padding:2px 4px;
-	}
-	a.highlight:visited {
-		color:#BA6E6E;
-		transition: 0.5s;
-		box-shadow:  10px 10px 5px #888888;
-	}
-	a.highlight:hover {
-		opacity: 1;
-		color: #A63A50;
-		transition: 0.3s;
-		box-shadow:  3px 3px 5px #888888;
-		padding:2px 4px;
+
+		&:visited {
+			color:$link-colour-visited;
+			transition: 0.5s;
+			box-shadow:  10px 10px 5px #888888;
+		}
+
+		&:hover {
+			opacity: 1;
+			color: $link-colour;
+			transition: 0.3s;
+			box-shadow:  3px 3px 5px #888888;
+			padding:2px 4px;
+		}
 	}
 	#contact-me {
-		// border-top: $border-width solid $border-colour;
 	  	position: relative;
 	  	padding-top: 1em;
 	  	text-align: center;
@@ -149,9 +161,3 @@
 		}
 	}
 }
-
-// #A63A50 rgba(166, 58, 80, 1)
-// #F0E7D8 rgba(240, 231, 216, 1)
-// #AB9B96 rgba(171, 155, 150, 1)
-// #A1674A rgba(161, 103, 74, 1)
-// #BA6E6E rgba(186, 110, 110, 1)

@@ -12,7 +12,8 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: $footer-height;
   line-height: 1.5rem;
-  background-color:rgba(240, 231, 216, 0.7);
+  background-color: rgba(129,139,155,0.5);
+  //background-color:rgba(240, 231, 216, 0.7);
 }
 
 h1 { font-size: 2em; margin: .67em 0 }
@@ -38,9 +39,8 @@ p {
   bottom: 0;
   width: 100%;
   height: $footer-height;
-  background-color: #333;
-  background-color: rgba(171, 155, 150, 0.8);
-  color: #A1674A;
+  background-color: rgba(196, 198, 194, 0.8);
+  color: #575B65;
 }
 #contact-me img {
   height:32px;
