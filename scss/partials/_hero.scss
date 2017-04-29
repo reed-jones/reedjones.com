@@ -90,7 +90,7 @@
 	border-left:none;
 	box-sizing:border-box;
 }
-.mm-parallax{
+.hero-image{
 	 -webkit-transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
   	-moz-transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
   	transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
@@ -112,7 +112,7 @@
 	height:100%;
 	z-index:1;
 }
-.mm-parallax {
+.hero-image {
 	position:absolute;
 	top:0;
 	left:0;
