@@ -13,6 +13,8 @@ var gulp = require('gulp'),
 
 gulp.task('default', ['connect', 'watch-sass', 'watch-js', 'watch-html']);
 
+gulp.task('build', ['sass', 'concat-js', 'html-min']);
+
 gulp.task('connect', function() {
   connect.server({
     root: '_public',
