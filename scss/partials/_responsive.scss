@@ -103,7 +103,7 @@
 	.content.fscon {
 		padding:70px 0 0 ;
 	}
-	.mm-par-wrap {
+	.hero-image-wrap {
 		top:calc(5% + 70px);
 	}
 	.hero-item {
@@ -150,5 +150,8 @@
 	}
 	.inline-facts , .gallery-item {
 	    width:100% !important;
+	}
+	.hero-wrap-item h1 {
+		font-size:$font-size-h1 - 15px;
 	}
 }

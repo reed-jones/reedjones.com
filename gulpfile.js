@@ -11,9 +11,9 @@ var gulp = require('gulp'),
 
 /************************* DEFAULT *************************************/
 
-gulp.task('default', ['connect', 'watch-sass', 'watch-js', 'watch-html']);
+gulp.task('default', ['build', 'connect', 'watch-sass', 'watch-js', 'watch-html']);
 
-gulp.task('build', ['sass', 'concat-js', 'html-min']);
+gulp.task('build', ['copy', 'sass', 'concat-js', 'html-min']);
 
 gulp.task('connect', function() {
   connect.server({
@@ -57,4 +57,9 @@ gulp.task('html-min', function() {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('_public'))
     .pipe(connect.reload());
+});
+
+gulp.task('copy', function () {
+    gulp.src('assets/**/*')
+        .pipe(gulp.dest('_public/'));
 });
