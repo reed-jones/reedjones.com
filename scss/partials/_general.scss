@@ -1,0 +1,135 @@
+/*-------------General Style---------------------------------------*/
+html{
+	overflow-x:hidden !important;
+	overflow-y:scroll !important;
+	height:100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	font-size: $font-size-para;
+	height:100%;
+	text-align:center;
+	background:$background-color;
+	color:#000;
+	font-family: $main-font;
+}
+
+/*------ section-------------------------------------------------*/
+section {
+	float:left;
+	width:100%;
+	position:relative;
+	padding:70px 0;
+}
+section.dec-sec:before {
+	content:'';
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:50%;
+	height:1px;
+	border-top:1px dashed #ccc;
+}
+section.dec-sec:after {
+	content:'';
+	position:absolute;
+	bottom:0;
+	left:50%;
+	width:7px;
+	height:7px;
+	border-radius:100%;
+	background:#eee;
+	margin-bottom:-2px;
+	margin-left:15px;
+}
+.section-title {
+	float:left;
+	width:100%;
+	position:relative;
+	padding-bottom:30px;
+}
+.section-title h2 {
+	float:left;
+	width:100%;
+	padding:6px 0;
+	font-size:$font-size-h2;
+	text-align:left;
+	font-family: $main-font;
+	font-weight:900;
+	text-transform:uppercase;
+	letter-spacing:2px;
+	position:relative;
+}
+.section-title h2, .text-subtitle, .bold-title {
+    color: #666;
+}
+.section-title h2:before {
+	content:'';
+	position:absolute;
+	top:-15px;
+	left:-15px;
+	width:100px;
+	height:100px;
+	background:#eee;
+	z-index:-1;
+	opacity:0.8;
+}
+.section-title p {
+	float:left;
+	text-align:left;
+	font-family: $subtle-font;
+	font-style:italic;
+	color:#494949;
+	max-width:500px;
+}
+
+/*------ Colors  ------------------------------------------------*/
+header li.act-link a,
+.text-title span,
+.dec-list li:before,
+.resum-header i,
+.sl-tabs li i,
+.testimonials-slider ul.star-rating li,
+.to-top-wrap i,
+.scroll-nav a.external:after,
+.mail-link:hover,
+.price,
+.fixed-filter .gallery-filters a.gallery-filter-active,
+.slider-zoom,
+.page-nav a span,
+.post-meta li i,
+.post-author-wrap li a,
+.controls button,
+.sliding-menu a:hover {
+    color: $highlight-color;
+}
+header.sticky li.act-link a,
+.fixed-icons-wrap ul li a,
+.bold-separator,
+.fixed-column,
+.btn,
+.scroll-nav li a.act-link:before,
+.scroll-nav li a.act-link:after,
+.custom-skillbar,
+.price:before,
+.color-bg,
+ul.tabs li.current .tb-item,
+.testimonials-slider-holder .customNavigation a,
+.accordion-title.activeac h5 a,
+.resum-header:before,
+.menu-inner:before,
+.customNavigation.gals a,
+.bold-title:before,
+.progress-bar,
+.grid-det h3:before,
+.inline-filter .gallery-filters a.gallery-filter-active,
+.box-item.vis-det a,
+.inline-filter .folio-counter,
+.fixed-filter .folio-counter,
+.box-item.hd-box .image-popup,
+.post-tags li a:hover,
+.box-item.vis-det a.popgal, {
+    background: $highlight-color;
+}

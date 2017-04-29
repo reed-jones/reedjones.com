@@ -1,0 +1,170 @@
+.btn{
+	float:left;
+	margin-top:10px;
+	font-size: $font-size-buttons;
+	color: #fff;
+	margin-right:10px ;
+	text-align: center;
+	width: auto;
+	letter-spacing: normal;
+	position: relative;
+	-moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    vertical-align: middle;
+    max-width: 100%;
+    overflow: hidden;
+	background:$highlight-color;
+    outline: none;
+	padding: 15px 18px;
+    display: inline-block;
+	border-radius:4px;
+}
+.btn i{
+	padding-right: 10px;
+	font-size: 15px;
+	background:#414146;
+	padding: 14px 20px;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	-webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.btn.hide-icon span {
+	padding: 0 33px;
+	-webkit-transition: all 500ms linear;
+    -moz-transition: all 500ms linear;
+    -o-transition: all 500ms linear;
+    -ms-transition: all 500ms linear;
+    transition: all 500ms linear;
+	font-family: $alternate-font;
+	font-size:10px;
+	text-transform:uppercase;
+}
+.btn.hide-icon i {
+	padding: 11px 20px 10px;
+	left: -60px;
+	height: 100%;
+	line-height: 25px;
+	display: inline-block;
+	position: absolute;
+	color:#fff !important;
+	top: 0;
+}
+.btn.hide-icon:hover i{
+	left: 0;
+}
+.btn.hide-icon:hover span {
+	padding-left: 59px;
+	padding-right: 11px;
+}
+.small-pad-sec {
+	padding-bottom:10px;
+	margin-top: 10px;
+}
+.small-sec {
+	padding:30px 0;
+}
+.bold-separator {
+	width:70px;
+	height:6px;
+	background:#000;
+	float:left;
+	margin-top:15px;
+}
+.scroll-nav-holder{
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	background: #404040;
+	float:left;
+	width:100%;
+	position:relative;
+	z-index:6;
+	-webkit-transform: translate3d(0,0,0);
+}
+.scroll-nav ul {
+	float:left;
+	width:100%;
+}
+.scroll-nav li {
+	float:left;
+	border-right:1px solid  rgba(255,255,255,0.21);
+	box-sizing:border-box;
+	overflow:hidden;
+	background:#404040;
+}
+.scroll-nav li:last-child {
+	border-right:none;
+}
+.scroll-nav li a {
+	font-weight:700;
+	font-size:$font-size-buttons - 6px;
+	position:relative;
+	float:left;
+	width:100%;
+	padding:25px 0;
+	color:#fff;
+	text-transform:uppercase;
+	letter-spacing:2px;
+}
+.scroll-nav a.external {
+	 background: #585858;
+}
+.scroll-nav li a span {
+	position:relative;
+	z-index:2;
+	-webkit-transition: all 500ms linear;
+    -moz-transition: all 500ms linear;
+    -o-transition: all 500ms linear;
+    -ms-transition: all 500ms linear;
+    transition: all 500ms linear;
+}
+.scroll-nav li a:hover span {
+	opacity:0.5;
+}
+.scroll-nav li a:before  , .scroll-nav li a:after {
+	content:'';
+	position:absolute;
+	height:0;
+	width:50%;
+	opacity:0;
+	z-index:1;
+	-webkit-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+}
+.scroll-nav li a:before {
+ 	top:0;
+	left:0;
+}
+.scroll-nav li a:after {
+	bottom:0;
+	right:0;
+}
+.scroll-nav li a.act-link:before , .scroll-nav li a.act-link:after  {
+	height:100%;
+	width:100%;
+	/*content:'';*/
+	opacity:1;
+}
+.to-top-wrap{
+	float:left;
+	width:100%;
+	position:relative;
+	padding:30px 0;
+}
+.to-top-wrap i {
+	position:absolute;
+	top:-35px;
+	left:50%;
+	width:30px;
+	margin-left:-15px;
+	font-size:18px;
+}
+.to-top-wrap a {
+	font-family: $subtle-font;
+	font-style:italic;
+	color: #999;
+}

@@ -1,0 +1,10 @@
+@import 'reset';
+@import 'utility';
+@import 'hero';
+@import 'images';
+
+// desktop width
+.content {
+	margin: 0 auto;
+	width: 960px;
+}

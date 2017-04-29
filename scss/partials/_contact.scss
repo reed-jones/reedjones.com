@@ -1,0 +1,17 @@
+#contactSection {
+	min-height:75vh;
+
+	.section-info {
+		padding-top:30vh;
+	}
+	h2 {
+		font-size: $font-size-h2;
+	}
+	h3 {
+		font-size: $font-size-h3;
+		padding:25px 0;
+	}
+	img {
+		padding:0 25px;
+	}
+}

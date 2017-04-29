@@ -1,0 +1,54 @@
+$footer-height: 60px;
+
+* {
+  box-sizing: border-box;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  font-size: 16px;
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
+  line-height: 1.5rem;
+  background-color: rgba(129,139,155,0.5);
+  //background-color:rgba(240, 231, 216, 0.7);
+}
+
+h1 { font-size: 2em; margin: .67em 0 }
+h2 { font-size: 1.5em; margin: .75em 0 }
+h3 { font-size: 1.17em; margin: .83em 0 }
+h4 { font-size: 1em; margin: 1.17em 0 }
+h5 { font-size: .83em; margin: 1.5em 0 }
+h6 { font-size: .75em; margin: 1.67em 0 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oxygen', sans-serif;
+}
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.footer {
+  /* vertical/horizontal center text */
+  text-align: center;
+  vertical-align: middle;
+  line-height:$footer-height;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: rgba(196, 198, 194, 0.8);
+  color: #575B65;
+}
+#contact-me img {
+  height:32px;
+  width: auto;
+}
+
+// #A63A50 rgba(166, 58, 80, 1)
+// #F0E7D8 rgba(240, 231, 216, 1)
+// #AB9B96 rgba(171, 155, 150, 1)
+// #A1674A rgba(161, 103, 74, 1)
+// #BA6E6E rgba(186, 110, 110, 1)

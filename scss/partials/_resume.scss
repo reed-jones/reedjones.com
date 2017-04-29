@@ -1,0 +1,139 @@
+.custom-inner-holder {
+	float:left;
+	margin-top:60px;
+	width:100%;
+	padding-left:20px;
+	border-left:1px solid #eee;
+}
+.custom-inner {
+	float:left;
+	width:100%;
+	position:relative;
+	margin-bottom:50px;
+}
+.custom-inner:last-child {
+	margin-bottom:0;
+}
+.resum-header h3 {
+	float:left;
+	padding-bottom:20px;
+	font-weight:600;
+	font-size:$font-size-h3;
+	text-align:left;
+}
+.resum-header {
+	float:left;
+	width:100%;
+	position:relative;
+	padding:30px 10px 30px 70px;
+	background:#f9f9f9;
+}
+.resum-header:after {
+    font-family: icomoon;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+	position:absolute;
+	color:#666;
+	bottom:10px;
+	font-size:$font-size-h1;
+	right:10px;
+	opacity:0.08;
+	-webkit-transform:  rotate(45deg);
+	-moz-transform:   rotate(45deg);
+	transform:   rotate(45deg);
+}
+.resum-header.educ:after {
+	content: "\f19c";
+}
+.resum-header.workres:after {
+	content: "\f0c3";
+}
+.resum-header:before {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:-26px;
+	width:10px;
+	height:10px;
+	margin-top:-10px;
+	border-radius:100%;
+}
+.resum-header span {
+	font-size:$font-size-h4;
+	text-transform:uppercase;
+	width:100%;
+	color:#666;
+	text-align:left;
+	float:left;
+}
+.resum-header i {
+	width:40px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #eee;
+	position:absolute;
+	border-radius:4px;
+	top:50%;
+	left:15px;
+	margin-top:-40px;
+	background:#fff;
+}
+
+.custom-inner-holder h2 {
+    float: left;
+    width: 100%;
+    padding: 6px 0;
+    font-size: $font-size-h2 - 15px;
+    text-align: left;
+    color: #666;
+    font-family: $main-font;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+.custom-inner h4 {
+	float:left;
+	width:100%;
+	padding-bottom:20px;
+	font-weight:800;
+	text-align:left;
+	text-transform:uppercase;
+	text-align:left;
+}
+.custom-inner-dec {
+	float:left;
+	width:100%;
+	margin-top:10px;
+	background:#eee;
+	height:1px;
+}
+.custom-inner ul {
+	float:left;
+	width:100%;
+	padding:10px 0 10px 13px;
+	list-style:decimal;
+}
+.custom-inner ul li {
+	float:left;
+	width:100%;
+	padding:5px 0 5px 10px;
+	text-align:left;
+	font-weight:800;
+	color:#666;
+}
+.custom-inner .content-nav ul {
+	position:relative;
+	left:0;
+	padding:0;
+	list-style:none;
+}
+.custom-inner .content-nav ul li {
+	float:left;
+	width:50%;
+	padding:0;
+}
+.custom-inner .btn {
+	margin-top:20px;
+}
