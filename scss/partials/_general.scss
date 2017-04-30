@@ -17,74 +17,81 @@ body{
 }
 
 /*------ section-------------------------------------------------*/
+.small-pad-sec {
+	padding-bottom:10px;
+	margin-top: 10px;
+}
 section {
 	float:left;
 	width:100%;
 	position:relative;
 	padding:70px 0;
-}
-section.dec-sec:before {
-	content:'';
-	position:absolute;
-	bottom:0;
-	left:0;
-	width:50%;
-	height:1px;
-	border-top:1px dashed #ccc;
-}
-section.dec-sec:after {
-	content:'';
-	position:absolute;
-	bottom:0;
-	left:50%;
-	width:7px;
-	height:7px;
-	border-radius:100%;
-	background:#eee;
-	margin-bottom:-2px;
-	margin-left:15px;
+
+	.dec-sec:before {
+		content:'';
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:50%;
+		height:1px;
+		border-top:1px dashed #ccc;
+	}
+	.dec-sec:after {
+		content:'';
+		position:absolute;
+		bottom:0;
+		left:50%;
+		width:7px;
+		height:7px;
+		border-radius:100%;
+		background:#eee;
+		margin-bottom:-2px;
+		margin-left:15px;
+	}
 }
 .section-title {
 	float:left;
 	width:100%;
 	position:relative;
 	padding-bottom:30px;
-}
-.section-title h2 {
-	float:left;
-	width:100%;
-	padding:6px 0;
-	font-size:$font-size-h2;
-	text-align:left;
-	font-family: $main-font;
-	font-weight:900;
-	text-transform:uppercase;
-	letter-spacing:2px;
-	position:relative;
-}
-.section-title h2, .text-subtitle, .bold-title {
-    color: #666;
-}
-.section-title h2:before {
-	content:'';
-	position:absolute;
-	top:-15px;
-	left:-15px;
-	width:100px;
-	height:100px;
-	background:#eee;
-	z-index:-1;
-	opacity:0.8;
-}
-.section-title p {
-	float:left;
-	text-align:left;
-	font-family: $subtle-font;
-	font-style:italic;
-	color:#494949;
-	max-width:500px;
+
+	h2 {
+		float:left;
+		width:100%;
+		padding:6px 0;
+		font-size:$font-size-h2;
+		text-align:left;
+		font-family: $main-font;
+		font-weight:900;
+		text-transform:uppercase;
+		letter-spacing:2px;
+		position:relative;
+	
+		&:before {
+			content:'';
+			position:absolute;
+			top:-15px;
+			left:-15px;
+			width:100px;
+			height:100px;
+			background:#eee;
+			z-index:-1;
+			opacity:0.8;
+		}
+	}
+	p {
+		float:left;
+		text-align:left;
+		font-family: $subtle-font;
+		font-style:italic;
+		color:#494949;
+		max-width:500px;
+	}
 }
 
+.section-title h2, .text-subtitle, .bold-title {
+    color: $title-color;
+}
 /*------ Colors  ------------------------------------------------*/
 header li.act-link a,
 .text-title span,

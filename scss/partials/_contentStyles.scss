@@ -100,20 +100,14 @@
 	background:#000;
 	opacity:0.2;
 }
-.hero-wrap {
-	position:relative;
-	width:100%;
-	overflow:hidden;
-	height:100%;
-	z-index:10;
-}
+
 .parallax-title {
 	position:absolute;
 	top:10%;
 	z-index:1;
 	font-size:$font-size-h1 * 1.5;
-	color:#000;
-	opacity:0.07;
+	color:$title-color;
+	opacity:0.12;
 	text-transform:uppercase;
 	font-weight:900;
 	right:50px;
@@ -124,30 +118,31 @@
 .dec-list {
 	float:left;
 	width:100%;
-}
-.dec-list li {
-	float:left;
-	width:100%;
-	text-align:left;
-	position:relative;
-	padding:15px 0 15px 40px;
-	font-size:$font-size-para;
-	border-bottom:1px solid #eee;
-	font-weight:600;
-}
-.dec-list li span {
-	color:#666;
-}
-.dec-list li:before {
-    font-family: icomoon;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-	content: "\f178";
-	position:absolute;
-	top:15px;
-	font-size:$font-size-para + 4px;
-	left:0;
+	li {
+		float:left;
+		width:100%;
+		text-align:left;
+		position:relative;
+		padding:15px 0 15px 40px;
+		font-size:$font-size-para;
+		border-bottom:1px solid #eee;
+		font-weight:600;
+	
+		span {
+			color:$title-color;
+		}
+		&:before {
+		    font-family: icomoon;
+		    font-style: normal;
+		    font-weight: normal;
+		    text-decoration: inherit;
+			content: "\f178";
+			position:absolute;
+			top:15px;
+			font-size:$font-size-para + 4px;
+			left:0;
+		}
+	}
 }
 .cts-dot {
 	display:none;

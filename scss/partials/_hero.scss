@@ -1,8 +1,15 @@
 .hero-wrap {
 	padding:0 70px;
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	height:100%;
+	z-index:10;
 	.overlay{
 		z-index:5;
 	}
+}
+.hero-wrap {
 }
 
 .hero-bg {
