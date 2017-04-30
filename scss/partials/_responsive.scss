@@ -1,6 +1,6 @@
 
 @media only screen and  (max-width: 1392px) {
-	.abt-wrap .box-item  , .resum-header , .sl-tabs{
+	.resum-header {
 		margin-bottom:40px;
 	}
 	.bold-title {
@@ -9,99 +9,23 @@
 }
 
 @media only screen and  (max-width: 1064px) {
-	.mob-bg {
-		display:block	
-	}	
 	.column-wrap {
 		width:100%;
 		padding-right:0;
 		padding-left:0;
 	}
-	.fixed-column , .arrowpagenav  , .parallax-title  {
+	.fixed-column, .parallax-title  {
 		display:none;
-	}
-	header.main-header {
-		width:100%;
-		top:0;
-		left:0;
-		height:70px;
-	}
-	.nav-button {
-		top:24px;
-		left:30px;
-		margin-top:0;
-	}
-	.logo-holder {
-		top:16px;
-		left:50%;
-		margin-left:-20px;
-	}
-	.show-share {
-		bottom:24px;
-		left:100%;
-		margin-left:-50px;
 	}
 	.hero-wrap {
 		padding:70px 0 0;
 		background:#fff;
-	}
-	.column-wrap #wrapper {
-		padding:0 10px 10px 10px;
-	}
-	.share-container {
-		position:fixed;
-		z-index:20;
-		left:100%;
-		margin-left:-60px;
-		bottom:100%;
-		margin-bottom:-290px;
-		width:40px;
-	}
-	.menu-wrap {
-		width: 320px;
-		bottom:0;
-		top:70px;
-		padding:0;
-		-webkit-transform: translate3d(-320px,0,0);
-		transform: translate3d(-320px,0,0);
-		-webkit-transition: -webkit-transform 0.4s;
-		transition: transform 0.4s;
-	}
-	.menu {
-		position: relative;
-		z-index: 1000;
-	}
-	.menu-logo {
-		position:absolute;
-		top:45px;
-		left:0;
-		width:100%;
-	}
-	.show-menu .menu-wrap,
-	.show-menu .menu-inner ,
-	.show-menu .morph-shape  {
-		-webkit-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
 	}
 	.content {
 	    padding: 70px 20px 0;
 	}
 	.content .container {
 		width:100%;
-	}
-	.no-pad-wrap {
-		padding-top:70px;
-	}
-	.content.no-bg {
-		padding-left:0;
-		padding-right:0;
-	}
-	.fixed-filter {
-		top:80px;
-		right:20px;
-	}
-	.content.fscon {
-		padding:70px 0 0 ;
 	}
 	.hero-image-wrap {
 		top:calc(5% + 70px);
@@ -125,30 +49,12 @@
 	.section-title h2 , .hero-wrap-item h2 {
 		font-size:$font-size-h2;
 	}
-	.inline-filter .folio-counter {
-		float:none;
-		margin-left:0;
-		display:inline-table;
-		margin-bottom:10px;
-	}
-	.inline-filter .folio-counter:before {
-		left:50%;
-		height:24px;
-		top:-36px;
-		 -webkit-transform:   rotate(0deg);
-	    -moz-transform:   rotate(0deg);
-	    transform:   rotate(0deg);
-	}
-	.order-wrap a.ord-link {
-		float:left;
-		margin-top:30px;
-	}
 }
 @media only screen and  (max-width: 540px) {
 	.scroll-nav-holder {
 		display:none;
 	}
-	.inline-facts , .gallery-item {
+	.inline-facts {
 	    width:100% !important;
 	}
 	.hero-wrap-item h1 {

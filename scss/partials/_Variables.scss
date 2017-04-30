@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400,500,600,700,700i,800,900&subset=latin-ext');
-
 $main-font:    'Raleway', sans-serif;
 $alternate-font:  'Montserrat', sans-serif;
 $subtle-font:	Georgia, "Times New Roman", Times, serif;
 $background-color: #50514F;		// grey
+$darken-color: #404040;			// dark grey
+$btn-text: #fff;				// white
+$title-color: #666;				// light grey
 $highlight-color: #247BA0;		// blue
+
 
 $font-size-h1: 64px;
 $font-size-h2: 46px;
