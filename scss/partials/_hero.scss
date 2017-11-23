@@ -1,123 +1,120 @@
 .hero-wrap {
-	padding:0 70px;
-	position:relative;
-	width:100%;
-	overflow:hidden;
-	height:100%;
-	z-index:10;
-	.overlay{
-		z-index:5;
-	}
+  padding: 0 70px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  z-index: 10;
+  .overlay {
+    z-index: 5;
+  }
 }
 
 .hero-bg {
-	background:#fff;
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	z-index:1;
-	&:before {
-		content:'';
-		position:absolute;
-		top:0;
-		left:0;
-		width:100%;
-		height:100%;
-		background-size: cover;
-		background-attachment: scroll;
-		background-position: center;
-		background-repeat:repeat;
-		background-origin: content-box;
-		background:url(../images/bg/impulse.jpg);
-	}
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: repeat;
+    background-origin: content-box;
+    background: url(../images/bg/impulse.jpg);
+  }
 }
 
 .hero-wrap-item {
-	float:left;
-	left:0;
-	padding-left:15%;
-	position:relative;
-	text-align:left;
-	top:50%;
-	width:100%;
-	z-index:6;
-	margin-top: -104.5px;
-	&:before{
-		content:'';
-		position:absolute;
-		top:-50px;
-		left:13%;
-		width:1px;
-		bottom:-50px;
-		background:rgba(255,255,255,0.21)
-	}
-	.container {
-		border-left:1px solid rgba(255,255,255,0.21);
-		padding:50px 0 50px 40px;
-	}
-	h1 {
-		float:left;
-		width:100%;
-		color:#fff;
-		font-size:$font-size-h1;
-		font-weight:900;
-	}
-	h4, a{
-		color:#fff;
-	}
-	p {
-		color:#fff;
-		font-family: $subtle-font;
-		font-style:italic;
-	}
-	h3 {
-		color:#fff;
-		font-size:$font-size-h3;
-		font-weight:500;
-		padding:10px 0;
-		position:relative;
-		width:100%;
-	 	float:left;
-	}
-
+  float: left;
+  left: 0;
+  padding-left: 15%;
+  position: relative;
+  text-align: left;
+  top: 50%;
+  width: 100%;
+  z-index: 6;
+  margin-top: -104.5px;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 13%;
+    width: 1px;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.21);
+  }
+  .container {
+    border-left: 1px solid rgba(255, 255, 255, 0.21);
+    padding: 50px 0 50px 40px;
+  }
+  h1 {
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-size: $font-size-h1;
+    font-weight: 900;
+  }
+  h4,
+  a {
+    color: #fff;
+  }
+  p {
+    color: #fff;
+    font-family: $subtle-font;
+    font-style: italic;
+  }
+  h3 {
+    color: #fff;
+    font-size: $font-size-h3;
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    float: left;
+  }
 }
 
-
-.hero-image-wrap{
-	position:absolute;
-	top:5%;
-	right:5%;
-	bottom:5%;
-	left:25%;
-	-webkit-perspective: 1000px;
-    -moz-perspective: 1000px;
-    perspective:1000px;
-	z-index:1;
-	&:before {
-		content:'';
-		position:absolute;
-		top:-10px;
-		left:20%;
-		right:-10px;
-		bottom:-10px;
-		border:1px solid #eee;
-		border-left:none;
-		box-sizing:border-box;
-	}
+.hero-image-wrap {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  left: 25%;
+  perspective: 1000px;
+  z-index: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20%;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid #eee;
+    border-left: none;
+    box-sizing: border-box;
+  }
 }
 
 .hero-image {
-	position:absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	overflow:hidden;
-	box-shadow: 0 20px 25px 0 rgba(18,17,30,.15);
-	border-radius:10px;
-	-webkit-transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
-  	-moz-transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
-  	transition: all 4000ms cubic-bezier(.19,1,.22,1) 0ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-shadow: 0 20px 25px 0 rgba(18, 17, 30, 0.15);
+  border-radius: 10px;
+  -webkit-transition: all 4000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+  -moz-transition: all 4000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+  transition: all 4000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
 }
