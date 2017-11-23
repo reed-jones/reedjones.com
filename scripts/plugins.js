@@ -1,208 +1,305 @@
-jQuery.easing.jswing = jQuery.easing.swing;
-jQuery.extend(jQuery.easing, {
-    def: "easeOutQuad",
-    swing: function(e, f, a, h, g) {
-        return jQuery.easing[jQuery.easing.def](e, f, a, h, g)
-    },
-    easeInQuad: function(e, f, a, h, g) {
-        return h * (f /= g) * f + a
-    },
-    easeOutQuad: function(e, f, a, h, g) {
-        return -h * (f /= g) * (f - 2) + a
-    },
-    easeInOutQuad: function(e, f, a, h, g) {
-        if ((f /= g / 2) < 1) {
-            return h / 2 * f * f + a
+/*! lozad.js - v1.0.9 - 2017-10-26
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2017 Apoorv Saxena; Licensed MIT */
+!(function(t, e) {
+  'object' == typeof exports && 'undefined' != typeof module
+    ? (module.exports = e())
+    : 'function' == typeof define && define.amd ? define(e) : (t.lozad = e())
+})(this, function() {
+  'use strict'
+  function t(t) {
+    t.setAttribute('data-loaded', !0)
+  }
+  var e =
+      Object.assign ||
+      function(t) {
+        for (var e = 1; e < arguments.length; e++) {
+          var r = arguments[e]
+          for (var o in r)
+            Object.prototype.hasOwnProperty.call(r, o) && (t[o] = r[o])
         }
-        return -h / 2 * ((--f) * (f - 2) - 1) + a
+        return t
+      },
+    r = {
+      rootMargin: '0px',
+      threshold: 0,
+      load: function(t) {
+        t.getAttribute('data-src') && (t.src = t.getAttribute('data-src')),
+          t.getAttribute('data-srcset') &&
+            (t.srcset = t.getAttribute('data-srcset')),
+          t.getAttribute('data-background-image') &&
+            (t.style.backgroundImage =
+              'url(' + t.getAttribute('data-background-image') + ')')
+      }
     },
-    easeInCubic: function(e, f, a, h, g) {
-        return h * (f /= g) * f * f + a
+    o = function(t) {
+      return 'true' === t.getAttribute('data-loaded')
     },
-    easeOutCubic: function(e, f, a, h, g) {
-        return h * ((f = f / g - 1) * f * f + 1) + a
-    },
-    easeInOutCubic: function(e, f, a, h, g) {
-        if ((f /= g / 2) < 1) {
-            return h / 2 * f * f * f + a
-        }
-        return h / 2 * ((f -= 2) * f * f + 2) + a
-    },
-    easeInQuart: function(e, f, a, h, g) {
-        return h * (f /= g) * f * f * f + a
-    },
-    easeOutQuart: function(e, f, a, h, g) {
-        return -h * ((f = f / g - 1) * f * f * f - 1) + a
-    },
-    easeInOutQuart: function(e, f, a, h, g) {
-        if ((f /= g / 2) < 1) {
-            return h / 2 * f * f * f * f + a
-        }
-        return -h / 2 * ((f -= 2) * f * f * f - 2) + a
-    },
-    easeInQuint: function(e, f, a, h, g) {
-        return h * (f /= g) * f * f * f * f + a
-    },
-    easeOutQuint: function(e, f, a, h, g) {
-        return h * ((f = f / g - 1) * f * f * f * f + 1) + a
-    },
-    easeInOutQuint: function(e, f, a, h, g) {
-        if ((f /= g / 2) < 1) {
-            return h / 2 * f * f * f * f * f + a
-        }
-        return h / 2 * ((f -= 2) * f * f * f * f + 2) + a
-    },
-    easeInSine: function(e, f, a, h, g) {
-        return -h * Math.cos(f / g * (Math.PI / 2)) + h + a
-    },
-    easeOutSine: function(e, f, a, h, g) {
-        return h * Math.sin(f / g * (Math.PI / 2)) + a
-    },
-    easeInOutSine: function(e, f, a, h, g) {
-        return -h / 2 * (Math.cos(Math.PI * f / g) - 1) + a
-    },
-    easeInExpo: function(e, f, a, h, g) {
-        return (f == 0) ? a : h * Math.pow(2, 10 * (f / g - 1)) + a
-    },
-    easeOutExpo: function(e, f, a, h, g) {
-        return (f == g) ? a + h : h * (-Math.pow(2, -10 * f / g) + 1) + a
-    },
-    easeInOutExpo: function(e, f, a, h, g) {
-        if (f == 0) {
-            return a
-        }
-        if (f == g) {
-            return a + h
-        }
-        if ((f /= g / 2) < 1) {
-            return h / 2 * Math.pow(2, 10 * (f - 1)) + a
-        }
-        return h / 2 * (-Math.pow(2, -10 * --f) + 2) + a
-    },
-    easeInCirc: function(e, f, a, h, g) {
-        return -h * (Math.sqrt(1 - (f /= g) * f) - 1) + a
-    },
-    easeOutCirc: function(e, f, a, h, g) {
-        return h * Math.sqrt(1 - (f = f / g - 1) * f) + a
-    },
-    easeInOutCirc: function(e, f, a, h, g) {
-        if ((f /= g / 2) < 1) {
-            return -h / 2 * (Math.sqrt(1 - f * f) - 1) + a
-        }
-        return h / 2 * (Math.sqrt(1 - (f -= 2) * f) + 1) + a
-    },
-    easeInElastic: function(f, h, e, l, k) {
-        var i = 1.70158;
-        var j = 0;
-        var g = l;
-        if (h == 0) {
-            return e
-        }
-        if ((h /= k) == 1) {
-            return e + l
-        }
-        if (!j) {
-            j = k * 0.3
-        }
-        if (g < Math.abs(l)) {
-            g = l;
-            var i = j / 4
-        } else {
-            var i = j / (2 * Math.PI) * Math.asin(l / g)
-        }
-        return -(g * Math.pow(2, 10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j)) + e
-    },
-    easeOutElastic: function(f, h, e, l, k) {
-        var i = 1.70158;
-        var j = 0;
-        var g = l;
-        if (h == 0) {
-            return e
-        }
-        if ((h /= k) == 1) {
-            return e + l
-        }
-        if (!j) {
-            j = k * 0.3
-        }
-        if (g < Math.abs(l)) {
-            g = l;
-            var i = j / 4
-        } else {
-            var i = j / (2 * Math.PI) * Math.asin(l / g)
-        }
-        return g * Math.pow(2, -10 * h) * Math.sin((h * k - i) * (2 * Math.PI) / j) + l + e
-    },
-    easeInOutElastic: function(f, h, e, l, k) {
-        var i = 1.70158;
-        var j = 0;
-        var g = l;
-        if (h == 0) {
-            return e
-        }
-        if ((h /= k / 2) == 2) {
-            return e + l
-        }
-        if (!j) {
-            j = k * (0.3 * 1.5)
-        }
-        if (g < Math.abs(l)) {
-            g = l;
-            var i = j / 4
-        } else {
-            var i = j / (2 * Math.PI) * Math.asin(l / g)
-        }
-        if (h < 1) {
-            return -0.5 * (g * Math.pow(2, 10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j)) + e
-        }
-        return g * Math.pow(2, -10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j) * 0.5 + l + e
-    },
-    easeInBack: function(e, f, a, i, h, g) {
-        if (g == undefined) {
-            g = 1.70158
-        }
-        return i * (f /= h) * f * ((g + 1) * f - g) + a
-    },
-    easeOutBack: function(e, f, a, i, h, g) {
-        if (g == undefined) {
-            g = 1.70158
-        }
-        return i * ((f = f / h - 1) * f * ((g + 1) * f + g) + 1) + a
-    },
-    easeInOutBack: function(e, f, a, i, h, g) {
-        if (g == undefined) {
-            g = 1.70158
-        }
-        if ((f /= h / 2) < 1) {
-            return i / 2 * (f * f * (((g *= (1.525)) + 1) * f - g)) + a
-        }
-        return i / 2 * ((f -= 2) * f * (((g *= (1.525)) + 1) * f + g) + 2) + a
-    },
-    easeInBounce: function(e, f, a, h, g) {
-        return h - jQuery.easing.easeOutBounce(e, g - f, 0, h, g) + a
-    },
-    easeOutBounce: function(e, f, a, h, g) {
-        if ((f /= g) < (1 / 2.75)) {
-            return h * (7.5625 * f * f) + a
-        } else {
-            if (f < (2 / 2.75)) {
-                return h * (7.5625 * (f -= (1.5 / 2.75)) * f + 0.75) + a
-            } else {
-                if (f < (2.5 / 2.75)) {
-                    return h * (7.5625 * (f -= (2.25 / 2.75)) * f + 0.9375) + a
-                } else {
-                    return h * (7.5625 * (f -= (2.625 / 2.75)) * f + 0.984375) + a
-                }
-            }
-        }
-    },
-    easeInOutBounce: function(e, f, a, h, g) {
-        if (f < g / 2) {
-            return jQuery.easing.easeInBounce(e, f * 2, 0, h, g) * 0.5 + a
-        }
-        return jQuery.easing.easeOutBounce(e, f * 2 - g, 0, h, g) * 0.5 + h * 0.5 + a
+    n = function(e) {
+      return function(r, n) {
+        r.forEach(function(r) {
+          r.intersectionRatio > 0 &&
+            (n.unobserve(r.target), o(r.target) || (e(r.target), t(r.target)))
+        })
+      }
     }
-});
+  return function() {
+    var a =
+        arguments.length > 0 && void 0 !== arguments[0]
+          ? arguments[0]
+          : '.lozad',
+      i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+      u = e({}, r, i),
+      d = u.rootMargin,
+      c = u.threshold,
+      s = u.load,
+      g = void 0
+    return (
+      window.IntersectionObserver &&
+        (g = new IntersectionObserver(n(s), { rootMargin: d, threshold: c })),
+      {
+        observe: function() {
+          for (var e = document.querySelectorAll(a), r = 0; r < e.length; r++)
+            o(e[r]) || (g ? g.observe(e[r]) : (s(e[r]), t(e[r])))
+        },
+        triggerLoad: function(e) {
+          o(e) || (s(e), t(e))
+        }
+      }
+    )
+  }
+})
+
+jQuery.easing.jswing = jQuery.easing.swing
+jQuery.extend(jQuery.easing, {
+  def: 'easeOutQuad',
+  swing: function(e, f, a, h, g) {
+    return jQuery.easing[jQuery.easing.def](e, f, a, h, g)
+  },
+  easeInQuad: function(e, f, a, h, g) {
+    return h * (f /= g) * f + a
+  },
+  easeOutQuad: function(e, f, a, h, g) {
+    return -h * (f /= g) * (f - 2) + a
+  },
+  easeInOutQuad: function(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f + a
+    }
+    return -h / 2 * (--f * (f - 2) - 1) + a
+  },
+  easeInCubic: function(e, f, a, h, g) {
+    return h * (f /= g) * f * f + a
+  },
+  easeOutCubic: function(e, f, a, h, g) {
+    return h * ((f = f / g - 1) * f * f + 1) + a
+  },
+  easeInOutCubic: function(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f + a
+    }
+    return h / 2 * ((f -= 2) * f * f + 2) + a
+  },
+  easeInQuart: function(e, f, a, h, g) {
+    return h * (f /= g) * f * f * f + a
+  },
+  easeOutQuart: function(e, f, a, h, g) {
+    return -h * ((f = f / g - 1) * f * f * f - 1) + a
+  },
+  easeInOutQuart: function(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f * f + a
+    }
+    return -h / 2 * ((f -= 2) * f * f * f - 2) + a
+  },
+  easeInQuint: function(e, f, a, h, g) {
+    return h * (f /= g) * f * f * f * f + a
+  },
+  easeOutQuint: function(e, f, a, h, g) {
+    return h * ((f = f / g - 1) * f * f * f * f + 1) + a
+  },
+  easeInOutQuint: function(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f * f * f + a
+    }
+    return h / 2 * ((f -= 2) * f * f * f * f + 2) + a
+  },
+  easeInSine: function(e, f, a, h, g) {
+    return -h * Math.cos(f / g * (Math.PI / 2)) + h + a
+  },
+  easeOutSine: function(e, f, a, h, g) {
+    return h * Math.sin(f / g * (Math.PI / 2)) + a
+  },
+  easeInOutSine: function(e, f, a, h, g) {
+    return -h / 2 * (Math.cos(Math.PI * f / g) - 1) + a
+  },
+  easeInExpo: function(e, f, a, h, g) {
+    return f == 0 ? a : h * Math.pow(2, 10 * (f / g - 1)) + a
+  },
+  easeOutExpo: function(e, f, a, h, g) {
+    return f == g ? a + h : h * (-Math.pow(2, -10 * f / g) + 1) + a
+  },
+  easeInOutExpo: function(e, f, a, h, g) {
+    if (f == 0) {
+      return a
+    }
+    if (f == g) {
+      return a + h
+    }
+    if ((f /= g / 2) < 1) {
+      return h / 2 * Math.pow(2, 10 * (f - 1)) + a
+    }
+    return h / 2 * (-Math.pow(2, -10 * --f) + 2) + a
+  },
+  easeInCirc: function(e, f, a, h, g) {
+    return -h * (Math.sqrt(1 - (f /= g) * f) - 1) + a
+  },
+  easeOutCirc: function(e, f, a, h, g) {
+    return h * Math.sqrt(1 - (f = f / g - 1) * f) + a
+  },
+  easeInOutCirc: function(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return -h / 2 * (Math.sqrt(1 - f * f) - 1) + a
+    }
+    return h / 2 * (Math.sqrt(1 - (f -= 2) * f) + 1) + a
+  },
+  easeInElastic: function(f, h, e, l, k) {
+    var i = 1.70158
+    var j = 0
+    var g = l
+    if (h == 0) {
+      return e
+    }
+    if ((h /= k) == 1) {
+      return e + l
+    }
+    if (!j) {
+      j = k * 0.3
+    }
+    if (g < Math.abs(l)) {
+      g = l
+      var i = j / 4
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g)
+    }
+    return (
+      -(
+        g *
+        Math.pow(2, 10 * (h -= 1)) *
+        Math.sin((h * k - i) * (2 * Math.PI) / j)
+      ) + e
+    )
+  },
+  easeOutElastic: function(f, h, e, l, k) {
+    var i = 1.70158
+    var j = 0
+    var g = l
+    if (h == 0) {
+      return e
+    }
+    if ((h /= k) == 1) {
+      return e + l
+    }
+    if (!j) {
+      j = k * 0.3
+    }
+    if (g < Math.abs(l)) {
+      g = l
+      var i = j / 4
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g)
+    }
+    return (
+      g * Math.pow(2, -10 * h) * Math.sin((h * k - i) * (2 * Math.PI) / j) +
+      l +
+      e
+    )
+  },
+  easeInOutElastic: function(f, h, e, l, k) {
+    var i = 1.70158
+    var j = 0
+    var g = l
+    if (h == 0) {
+      return e
+    }
+    if ((h /= k / 2) == 2) {
+      return e + l
+    }
+    if (!j) {
+      j = k * (0.3 * 1.5)
+    }
+    if (g < Math.abs(l)) {
+      g = l
+      var i = j / 4
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g)
+    }
+    if (h < 1) {
+      return (
+        -0.5 *
+          (g *
+            Math.pow(2, 10 * (h -= 1)) *
+            Math.sin((h * k - i) * (2 * Math.PI) / j)) +
+        e
+      )
+    }
+    return (
+      g *
+        Math.pow(2, -10 * (h -= 1)) *
+        Math.sin((h * k - i) * (2 * Math.PI) / j) *
+        0.5 +
+      l +
+      e
+    )
+  },
+  easeInBack: function(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158
+    }
+    return i * (f /= h) * f * ((g + 1) * f - g) + a
+  },
+  easeOutBack: function(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158
+    }
+    return i * ((f = f / h - 1) * f * ((g + 1) * f + g) + 1) + a
+  },
+  easeInOutBack: function(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158
+    }
+    if ((f /= h / 2) < 1) {
+      return i / 2 * (f * f * (((g *= 1.525) + 1) * f - g)) + a
+    }
+    return i / 2 * ((f -= 2) * f * (((g *= 1.525) + 1) * f + g) + 2) + a
+  },
+  easeInBounce: function(e, f, a, h, g) {
+    return h - jQuery.easing.easeOutBounce(e, g - f, 0, h, g) + a
+  },
+  easeOutBounce: function(e, f, a, h, g) {
+    if ((f /= g) < 1 / 2.75) {
+      return h * (7.5625 * f * f) + a
+    } else {
+      if (f < 2 / 2.75) {
+        return h * (7.5625 * (f -= 1.5 / 2.75) * f + 0.75) + a
+      } else {
+        if (f < 2.5 / 2.75) {
+          return h * (7.5625 * (f -= 2.25 / 2.75) * f + 0.9375) + a
+        } else {
+          return h * (7.5625 * (f -= 2.625 / 2.75) * f + 0.984375) + a
+        }
+      }
+    }
+  },
+  easeInOutBounce: function(e, f, a, h, g) {
+    if (f < g / 2) {
+      return jQuery.easing.easeInBounce(e, f * 2, 0, h, g) * 0.5 + a
+    }
+    return (
+      jQuery.easing.easeOutBounce(e, f * 2 - g, 0, h, g) * 0.5 + h * 0.5 + a
+    )
+  }
+})
 
 /**
  *  Parallax Scrolling Library
@@ -537,76 +634,99 @@ jQuery.extend(jQuery.easing, {
 //     // v.appendChild(w);
 //     return q
 // });
-
-(function($) {
-    $.fn.appear = function(f, o) {
-        var s = $.extend({
-            one: true
-        }, o);
-        return this.each(function() {
-            var t = $(this);
-            t.appeared = false;
-            if (!f) {
-                t.trigger('appear', s.data);
-                return;
-            }
-            var w = $(window);
-            var c = function() {
-                if (!t.is(':visible')) {
-                    t.appeared = false;
-                    return;
-                }
-                var a = w.scrollLeft();
-                var b = w.scrollTop();
-                var o = t.offset();
-                var x = o.left;
-                var y = o.top;
-                if (y + t.height() >= b && y <= b + w.height() && x + t.width() >= a && x <= a + w.width()) {
-                    if (!t.appeared) t.trigger('appear', s.data);
-                } else {
-                    t.appeared = false;
-                }
-            };
-            var m = function() {
-                t.appeared = true;
-                if (s.one) {
-                    w.unbind('scroll', c);
-                    var i = $.inArray(c, $.fn.appear.checks);
-                    if (i >= 0) $.fn.appear.checks.splice(i, 1);
-                }
-                f.apply(this, arguments);
-            };
-            if (s.one) t.one('appear', s.data, m);
-            else t.bind('appear', s.data, m);
-            w.scroll(c);
-            $.fn.appear.checks.push(c);
-            (c)();
-        });
-    };
-    $.extend($.fn.appear, {
-        checks: [],
-        timeout: null,
-        checkAll: function() {
-            var l = $.fn.appear.checks.length;
-            if (l > 0)
-                while (l--)($.fn.appear.checks[l])();
-        },
-        run: function() {
-            if ($.fn.appear.timeout) clearTimeout($.fn.appear.timeout);
-            $.fn.appear.timeout = setTimeout($.fn.appear.checkAll, 20);
+;(function($) {
+  $.fn.appear = function(f, o) {
+    var s = $.extend(
+      {
+        one: true
+      },
+      o
+    )
+    return this.each(function() {
+      var t = $(this)
+      t.appeared = false
+      if (!f) {
+        t.trigger('appear', s.data)
+        return
+      }
+      var w = $(window)
+      var c = function() {
+        if (!t.is(':visible')) {
+          t.appeared = false
+          return
         }
-    });
-    $.each(['append', 'prepend', 'after', 'before', 'attr', 'removeAttr', 'addClass', 'removeClass', 'toggleClass', 'remove', 'css', 'show', 'hide'], function(i, n) {
-        var u = $.fn[n];
-        if (u) {
-            $.fn[n] = function() {
-                var r = u.apply(this, arguments);
-                $.fn.appear.run();
-                return r;
-            }
+        var a = w.scrollLeft()
+        var b = w.scrollTop()
+        var o = t.offset()
+        var x = o.left
+        var y = o.top
+        if (
+          y + t.height() >= b &&
+          y <= b + w.height() &&
+          x + t.width() >= a &&
+          x <= a + w.width()
+        ) {
+          if (!t.appeared) t.trigger('appear', s.data)
+        } else {
+          t.appeared = false
         }
-    });
-})(jQuery);
+      }
+      var m = function() {
+        t.appeared = true
+        if (s.one) {
+          w.unbind('scroll', c)
+          var i = $.inArray(c, $.fn.appear.checks)
+          if (i >= 0) $.fn.appear.checks.splice(i, 1)
+        }
+        f.apply(this, arguments)
+      }
+      if (s.one) t.one('appear', s.data, m)
+      else t.bind('appear', s.data, m)
+      w.scroll(c)
+      $.fn.appear.checks.push(c)
+      c()
+    })
+  }
+  $.extend($.fn.appear, {
+    checks: [],
+    timeout: null,
+    checkAll: function() {
+      var l = $.fn.appear.checks.length
+      if (l > 0) while (l--) $.fn.appear.checks[l]()
+    },
+    run: function() {
+      if ($.fn.appear.timeout) clearTimeout($.fn.appear.timeout)
+      $.fn.appear.timeout = setTimeout($.fn.appear.checkAll, 20)
+    }
+  })
+  $.each(
+    [
+      'append',
+      'prepend',
+      'after',
+      'before',
+      'attr',
+      'removeAttr',
+      'addClass',
+      'removeClass',
+      'toggleClass',
+      'remove',
+      'css',
+      'show',
+      'hide'
+    ],
+    function(i, n) {
+      var u = $.fn[n]
+      if (u) {
+        $.fn[n] = function() {
+          var r = u.apply(this, arguments)
+          $.fn.appear.run()
+          return r
+        }
+      }
+    }
+  )
+})(jQuery)
 
 /**
  * Single Page Nav Plugin
@@ -618,153 +738,159 @@ jQuery.extend(jQuery.easing, {
 
 // Utility
 if (typeof Object.create !== 'function') {
-    Object.create = function(obj) {
-        function F() {}
-        F.prototype = obj;
-        return new F()
-    }
-}(function($, window, document, undefined) {
-    "use strict";
-    var SinglePageNav = {
-        init: function(options, container) {
-            this.options = $.extend({}, $.fn.singlePageNav.defaults, options);
-            this.container = container;
-            this.$container = $(container);
-            this.$links = this.$container.find('a');
-            if (this.options.filter !== '') {
-                this.$links = this.$links.filter(this.options.filter)
-            }
-            this.$window = $(window);
-            this.$htmlbody = $('html, body');
-            this.$links.on('click.singlePageNav', $.proxy(this.handleClick, this));
-            this.didScroll = false;
-            this.checkPosition();
-            this.setTimer()
-        },
-        handleClick: function(e) {
-            var self = this,
-                link = e.currentTarget,
-                $elem = $(link.hash);
-            e.preventDefault();
-            if ($elem.length) {
-                self.clearTimer();
-                if (typeof self.options.beforeStart === 'function') {
-                    self.options.beforeStart()
-                }
-                self.setActiveLink(link.hash);
-                self.scrollTo($elem, function() {
-                    if (self.options.updateHash && history.pushState) {
-                        history.pushState(null, null, link.hash)
-                    }
-                    self.setTimer();
-                    if (typeof self.options.onComplete === 'function') {
-                        self.options.onComplete()
-                    }
-                })
-            }
-        },
-        scrollTo: function($elem, callback) {
-            var self = this;
-            var target = self.getCoords($elem).top;
-            var called = false;
-            self.$htmlbody.stop().animate({
-                scrollTop: target
-            }, {
-                duration: self.options.speed,
-                easing: self.options.easing,
-                complete: function() {
-                    if (typeof callback === 'function' && !called) {
-                        callback()
-                    }
-                    called = true
-                }
-            })
-        },
-        setTimer: function() {
-            var self = this;
-            self.$window.on('scroll.singlePageNav', function() {
-                self.didScroll = true
-            });
-            self.timer = setInterval(function() {
-                if (self.didScroll) {
-                    self.didScroll = false;
-                    self.checkPosition()
-                }
-            }, 250)
-        },
-        clearTimer: function() {
-            clearInterval(this.timer);
-            this.$window.off('scroll.singlePageNav');
-            this.didScroll = false
-        },
-        checkPosition: function() {
-            var scrollPos = this.$window.scrollTop();
-            var currentSection = this.getCurrentSection(scrollPos);
-            if (currentSection !== null) {
-                this.setActiveLink(currentSection)
-            }
-        },
-        getCoords: function($elem) {
-            return {
-                top: Math.round($elem.offset().top) - this.options.offset
-            }
-        },
-        setActiveLink: function(href) {
-            var $activeLink = this.$container.find("a[href$='" + href + "']");
-            if (!$activeLink.hasClass(this.options.currentClass)) {
-                this.$links.removeClass(this.options.currentClass);
-                $activeLink.addClass(this.options.currentClass);
-                if ($(".scroll-nav  a").hasClass("act-link")) $(".scroll-nav  a.act-link").each(function() {
-                    var a = $(this).data("bgscr"),
-                        b = $(this).data("bgtex");
-                    var ua = window.navigator.userAgent;
-                    var msie = ua.indexOf("MSIE ");
-                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
-                        $(".bg-title span").html(b)
-                    } else {
-                        $(".bg-title span").html(b).shuffleLetters({})
-                    }
-                    $(".column-image").addClass("scrbg");
-                    setTimeout(function() {
-                        $(".bg-scroll").css("background-image", "url(" + a + ")");
-                        $(".column-image").removeClass("scrbg")
-                    }, 700)
-                })
-            }
-        },
-        getCurrentSection: function(scrollPos) {
-            var i, hash, coords, section;
-            for (i = 0; i < this.$links.length; i++) {
-                hash = this.$links[i].hash;
-                if ($(hash).length) {
-                    coords = this.getCoords($(hash));
-                    if (scrollPos >= coords.top - this.options.threshold) {
-                        section = hash
-                    }
-                }
-            }
-            return section || ((this.$links.length === 0) ? (null) : (this.$links[0].hash))
+  Object.create = function(obj) {
+    function F() {}
+    F.prototype = obj
+    return new F()
+  }
+}
+;(function($, window, document, undefined) {
+  'use strict'
+  var SinglePageNav = {
+    init: function(options, container) {
+      this.options = $.extend({}, $.fn.singlePageNav.defaults, options)
+      this.container = container
+      this.$container = $(container)
+      this.$links = this.$container.find('a')
+      if (this.options.filter !== '') {
+        this.$links = this.$links.filter(this.options.filter)
+      }
+      this.$window = $(window)
+      this.$htmlbody = $('html, body')
+      this.$links.on('click.singlePageNav', $.proxy(this.handleClick, this))
+      this.didScroll = false
+      this.checkPosition()
+      this.setTimer()
+    },
+    handleClick: function(e) {
+      var self = this,
+        link = e.currentTarget,
+        $elem = $(link.hash)
+      e.preventDefault()
+      if ($elem.length) {
+        self.clearTimer()
+        if (typeof self.options.beforeStart === 'function') {
+          self.options.beforeStart()
         }
-    };
-    $.fn.singlePageNav = function(options) {
-        return this.each(function() {
-            var singlePageNav = Object.create(SinglePageNav);
-            singlePageNav.init(options, this)
+        self.setActiveLink(link.hash)
+        self.scrollTo($elem, function() {
+          if (self.options.updateHash && history.pushState) {
+            history.pushState(null, null, link.hash)
+          }
+          self.setTimer()
+          if (typeof self.options.onComplete === 'function') {
+            self.options.onComplete()
+          }
         })
-    };
-    $.fn.singlePageNav.defaults = {
-        offset: 0,
-        threshold: 120,
-        speed: 400,
-        currentClass: 'current',
-        easing: 'swing',
-        updateHash: false,
-        filter: '',
-        onComplete: false,
-        beforeStart: false
+      }
+    },
+    scrollTo: function($elem, callback) {
+      var self = this
+      var target = self.getCoords($elem).top
+      var called = false
+      self.$htmlbody.stop().animate(
+        {
+          scrollTop: target
+        },
+        {
+          duration: self.options.speed,
+          easing: self.options.easing,
+          complete: function() {
+            if (typeof callback === 'function' && !called) {
+              callback()
+            }
+            called = true
+          }
+        }
+      )
+    },
+    setTimer: function() {
+      var self = this
+      self.$window.on('scroll.singlePageNav', function() {
+        self.didScroll = true
+      })
+      self.timer = setInterval(function() {
+        if (self.didScroll) {
+          self.didScroll = false
+          self.checkPosition()
+        }
+      }, 250)
+    },
+    clearTimer: function() {
+      clearInterval(this.timer)
+      this.$window.off('scroll.singlePageNav')
+      this.didScroll = false
+    },
+    checkPosition: function() {
+      var scrollPos = this.$window.scrollTop()
+      var currentSection = this.getCurrentSection(scrollPos)
+      if (currentSection !== null) {
+        this.setActiveLink(currentSection)
+      }
+    },
+    getCoords: function($elem) {
+      return {
+        top: Math.round($elem.offset().top) - this.options.offset
+      }
+    },
+    setActiveLink: function(href) {
+      var $activeLink = this.$container.find("a[href$='" + href + "']")
+      if (!$activeLink.hasClass(this.options.currentClass)) {
+        this.$links.removeClass(this.options.currentClass)
+        $activeLink.addClass(this.options.currentClass)
+        if ($('.scroll-nav  a').hasClass('act-link'))
+          $('.scroll-nav  a.act-link').each(function() {
+            var a = $(this).data('bgscr'),
+              b = $(this).data('bgtex')
+            var ua = window.navigator.userAgent
+            var msie = ua.indexOf('MSIE ')
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+              $('.bg-title span').html(b)
+            } else {
+              $('.bg-title span')
+                .html(b)
+                .shuffleLetters({})
+            }
+            $('.column-image').addClass('scrbg')
+            setTimeout(function() {
+              $('.bg-scroll').css('background-image', 'url(' + a + ')')
+              $('.column-image').removeClass('scrbg')
+            }, 700)
+          })
+      }
+    },
+    getCurrentSection: function(scrollPos) {
+      var i, hash, coords, section
+      for (i = 0; i < this.$links.length; i++) {
+        hash = this.$links[i].hash
+        if ($(hash).length) {
+          coords = this.getCoords($(hash))
+          if (scrollPos >= coords.top - this.options.threshold) {
+            section = hash
+          }
+        }
+      }
+      return section || (this.$links.length === 0 ? null : this.$links[0].hash)
     }
-})(jQuery, window, document);
-
+  }
+  $.fn.singlePageNav = function(options) {
+    return this.each(function() {
+      var singlePageNav = Object.create(SinglePageNav)
+      singlePageNav.init(options, this)
+    })
+  }
+  $.fn.singlePageNav.defaults = {
+    offset: 0,
+    threshold: 120,
+    speed: 400,
+    currentClass: 'current',
+    easing: 'swing',
+    updateHash: false,
+    filter: '',
+    onComplete: false,
+    beforeStart: false
+  }
+})(jQuery, window, document)
 
 /**
  * @name		Shuffle Letters
@@ -773,463 +899,466 @@ if (typeof Object.create !== 'function') {
  * @url			http://tutorialzine.com/2011/09/shuffle-letters-effect-jquery/
  * @license		MIT License
  */
-
-(function(e) {
-    function t(e) {
-        var t = "";
-        if (e == "lowerLetter") {
-            t = "abcdefghijklmnopqrstuvwxyz0123456789"
-        } else if (e == "upperLetter") {
-            t = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        } else if (e == "symbol") {
-            t = "0123456789"
-        }
-        var n = t.split("");
-        return n[Math.floor(Math.random() * n.length)]
+;(function(e) {
+  function t(e) {
+    var t = ''
+    if (e == 'lowerLetter') {
+      t = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    } else if (e == 'upperLetter') {
+      t = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    } else if (e == 'symbol') {
+      t = '0123456789'
     }
-    e.fn.shuffleLetters = function(n) {
-        var r = e.extend({
-            step: 8,
-            fps: 25,
-            text: "",
-            callback: function() {}
-        }, n);
-        return this.each(function() {
-            var n = e(this),
-                i = "";
-            if (n.data("animated")) {
-                return true
-            }
-            n.data("animated", true);
-            if (r.text) {
-                i = r.text.split("")
-            } else {
-                i = n.text().split("")
-            }
-            var s = [],
-                o = [];
-            for (var u = 0; u < i.length; u++) {
-                var a = i[u];
-                if (a == " ") {
-                    s[u] = "space";
-                    continue
-                } else if (/[a-z]/.test(a)) {
-                    s[u] = "lowerLetter"
-                } else if (/[A-Z]/.test(a)) {
-                    s[u] = "upperLetter"
-                } else {
-                    s[u] = "symbol"
-                }
-                o.push(u)
-            }
-            n.html("");
-            (function f(e) {
-                var u, a = o.length,
-                    l = i.slice(0);
-                if (e > a) {
-                    n.data("animated", false);
-                    r.callback(n);
-                    return
-                }
-                for (u = Math.max(e, 0); u < a; u++) {
-                    if (u < e + r.step) {
-                        l[o[u]] = t(s[o[u]])
-                    } else {
-                        l[o[u]] = ""
-                    }
-                }
-                n.text(l.join(""));
-                setTimeout(function() {
-                    f(e + 1)
-                }, 1e3 / r.fps)
-            })(-r.step)
+    var n = t.split('')
+    return n[Math.floor(Math.random() * n.length)]
+  }
+  e.fn.shuffleLetters = function(n) {
+    var r = e.extend(
+      {
+        step: 8,
+        fps: 25,
+        text: '',
+        callback: function() {}
+      },
+      n
+    )
+    return this.each(function() {
+      var n = e(this),
+        i = ''
+      if (n.data('animated')) {
+        return true
+      }
+      n.data('animated', true)
+      if (r.text) {
+        i = r.text.split('')
+      } else {
+        i = n.text().split('')
+      }
+      var s = [],
+        o = []
+      for (var u = 0; u < i.length; u++) {
+        var a = i[u]
+        if (a == ' ') {
+          s[u] = 'space'
+          continue
+        } else if (/[a-z]/.test(a)) {
+          s[u] = 'lowerLetter'
+        } else if (/[A-Z]/.test(a)) {
+          s[u] = 'upperLetter'
+        } else {
+          s[u] = 'symbol'
+        }
+        o.push(u)
+      }
+      n.html('')
+      ;(function f(e) {
+        var u,
+          a = o.length,
+          l = i.slice(0)
+        if (e > a) {
+          n.data('animated', false)
+          r.callback(n)
+          return
+        }
+        for (u = Math.max(e, 0); u < a; u++) {
+          if (u < e + r.step) {
+            l[o[u]] = t(s[o[u]])
+          } else {
+            l[o[u]] = ''
+          }
+        }
+        n.text(l.join(''))
+        setTimeout(function() {
+          f(e + 1)
+        }, 1e3 / r.fps)
+      })(-r.step)
+    })
+  }
+})(jQuery)
+;(function(a) {
+  a.isScrollToFixed = function(b) {
+    return !!a(b).data('ScrollToFixed')
+  }
+  a.ScrollToFixed = function(d, i) {
+    var l = this
+    l.$el = a(d)
+    l.el = d
+    l.$el.data('ScrollToFixed', l)
+    var c = false
+    var G = l.$el
+    var H
+    var E
+    var e
+    var y
+    var D = 0
+    var q = 0
+    var j = -1
+    var f = -1
+    var t = null
+    var z
+    var g
+
+    function u() {
+      G.trigger('preUnfixed.ScrollToFixed')
+      k()
+      G.trigger('unfixed.ScrollToFixed')
+      f = -1
+      D = G.offset().top
+      q = G.offset().left
+      if (l.options.offsets) {
+        q += G.offset().left - G.position().left
+      }
+      if (j == -1) {
+        j = q
+      }
+      H = G.css('position')
+      c = true
+      if (l.options.bottom != -1) {
+        G.trigger('preFixed.ScrollToFixed')
+        w()
+        G.trigger('fixed.ScrollToFixed')
+      }
+    }
+
+    function n() {
+      var I = l.options.limit
+      if (!I) {
+        return 0
+      }
+      if (typeof I === 'function') {
+        return I.apply(G)
+      }
+      return I
+    }
+
+    function p() {
+      return H === 'fixed'
+    }
+
+    function x() {
+      return H === 'absolute'
+    }
+
+    function h() {
+      return !(p() || x())
+    }
+
+    function w() {
+      if (!p()) {
+        t.css({
+          display: G.css('display'),
+          width: G.outerWidth(true),
+          height: G.outerHeight(true),
+          float: G.css('float')
         })
+        cssOptions = {
+          'z-index': l.options.zIndex,
+          position: 'fixed',
+          top: l.options.bottom == -1 ? s() : '',
+          bottom: l.options.bottom == -1 ? '' : l.options.bottom,
+          'margin-left': '0px'
+        }
+        if (!l.options.dontSetWidth) {
+          cssOptions.width = G.width()
+        }
+        G.css(cssOptions)
+        G.addClass(l.options.baseClassName)
+        if (l.options.className) {
+          G.addClass(l.options.className)
+        }
+        H = 'fixed'
+      }
     }
-})(jQuery);
 
+    function b() {
+      var J = n()
+      var I = q
+      if (l.options.removeOffsets) {
+        I = ''
+        J = J - D
+      }
+      cssOptions = {
+        position: 'absolute',
+        top: J,
+        left: I,
+        'margin-left': '0px',
+        bottom: ''
+      }
+      if (!l.options.dontSetWidth) {
+        cssOptions.width = G.width()
+      }
+      G.css(cssOptions)
+      H = 'absolute'
+    }
 
-
-(function(a) {
-    a.isScrollToFixed = function(b) {
-        return !!a(b).data("ScrollToFixed")
-    };
-    a.ScrollToFixed = function(d, i) {
-        var l = this;
-        l.$el = a(d);
-        l.el = d;
-        l.$el.data("ScrollToFixed", l);
-        var c = false;
-        var G = l.$el;
-        var H;
-        var E;
-        var e;
-        var y;
-        var D = 0;
-        var q = 0;
-        var j = -1;
-        var f = -1;
-        var t = null;
-        var z;
-        var g;
-
-        function u() {
-            G.trigger("preUnfixed.ScrollToFixed");
-            k();
-            G.trigger("unfixed.ScrollToFixed");
-            f = -1;
-            D = G.offset().top;
-            q = G.offset().left;
-            if (l.options.offsets) {
-                q += (G.offset().left - G.position().left)
-            }
-            if (j == -1) {
-                j = q
-            }
-            H = G.css("position");
-            c = true;
-            if (l.options.bottom != -1) {
-                G.trigger("preFixed.ScrollToFixed");
-                w();
-                G.trigger("fixed.ScrollToFixed")
-            }
+    function k() {
+      if (!h()) {
+        f = -1
+        t.css('display', 'none')
+        G.css({
+          'z-index': y,
+          width: '',
+          position: E,
+          left: '',
+          top: e,
+          'margin-left': ''
+        })
+        G.removeClass('scroll-to-fixed-fixed')
+        if (l.options.className) {
+          G.removeClass(l.options.className)
         }
+        H = null
+      }
+    }
 
-        function n() {
-            var I = l.options.limit;
-            if (!I) {
-                return 0
-            }
-            if (typeof(I) === "function") {
-                return I.apply(G)
-            }
-            return I
+    function v(I) {
+      if (I != f) {
+        G.css('left', q - I)
+        f = I
+      }
+    }
+
+    function s() {
+      var I = l.options.marginTop
+      if (!I) {
+        return 0
+      }
+      if (typeof I === 'function') {
+        return I.apply(G)
+      }
+      return I
+    }
+
+    function A() {
+      if (!a.isScrollToFixed(G)) {
+        return
+      }
+      var K = c
+      if (!c) {
+        u()
+      } else {
+        if (h()) {
+          D = G.offset().top
+          q = G.offset().left
         }
-
-        function p() {
-            return H === "fixed"
+      }
+      var I = a(window).scrollLeft()
+      var L = a(window).scrollTop()
+      var J = n()
+      if (l.options.minWidth && a(window).width() < l.options.minWidth) {
+        if (!h() || !K) {
+          o()
+          G.trigger('preUnfixed.ScrollToFixed')
+          k()
+          G.trigger('unfixed.ScrollToFixed')
         }
-
-        function x() {
-            return H === "absolute"
-        }
-
-        function h() {
-            return !(p() || x())
-        }
-
-        function w() {
-            if (!p()) {
-                t.css({
-                    display: G.css("display"),
-                    width: G.outerWidth(true),
-                    height: G.outerHeight(true),
-                    "float": G.css("float")
-                });
-                cssOptions = {
-                    "z-index": l.options.zIndex,
-                    position: "fixed",
-                    top: l.options.bottom == -1 ? s() : "",
-                    bottom: l.options.bottom == -1 ? "" : l.options.bottom,
-                    "margin-left": "0px"
-                };
-                if (!l.options.dontSetWidth) {
-                    cssOptions.width = G.width()
-                }
-                G.css(cssOptions);
-                G.addClass(l.options.baseClassName);
-                if (l.options.className) {
-                    G.addClass(l.options.className)
-                }
-                H = "fixed"
-            }
-        }
-
-        function b() {
-            var J = n();
-            var I = q;
-            if (l.options.removeOffsets) {
-                I = "";
-                J = J - D
-            }
-            cssOptions = {
-                position: "absolute",
-                top: J,
-                left: I,
-                "margin-left": "0px",
-                bottom: ""
-            };
-            if (!l.options.dontSetWidth) {
-                cssOptions.width = G.width()
-            }
-            G.css(cssOptions);
-            H = "absolute"
-        }
-
-        function k() {
-            if (!h()) {
-                f = -1;
-                t.css("display", "none");
-                G.css({
-                    "z-index": y,
-                    width: "",
-                    position: E,
-                    left: "",
-                    top: e,
-                    "margin-left": ""
-                });
-                G.removeClass("scroll-to-fixed-fixed");
-                if (l.options.className) {
-                    G.removeClass(l.options.className)
-                }
-                H = null
-            }
-        }
-
-        function v(I) {
-            if (I != f) {
-                G.css("left", q - I);
-                f = I
-            }
-        }
-
-        function s() {
-            var I = l.options.marginTop;
-            if (!I) {
-                return 0
-            }
-            if (typeof(I) === "function") {
-                return I.apply(G)
-            }
-            return I
-        }
-
-        function A() {
-            if (!a.isScrollToFixed(G)) {
-                return
-            }
-            var K = c;
-            if (!c) {
-                u()
+      } else {
+        if (l.options.maxWidth && a(window).width() > l.options.maxWidth) {
+          if (!h() || !K) {
+            o()
+            G.trigger('preUnfixed.ScrollToFixed')
+            k()
+            G.trigger('unfixed.ScrollToFixed')
+          }
+        } else {
+          if (l.options.bottom == -1) {
+            if (J > 0 && L >= J - s()) {
+              if (!x() || !K) {
+                o()
+                G.trigger('preAbsolute.ScrollToFixed')
+                b()
+                G.trigger('unfixed.ScrollToFixed')
+              }
             } else {
-                if (h()) {
-                    D = G.offset().top;
-                    q = G.offset().left
+              if (L >= D - s()) {
+                if (!p() || !K) {
+                  o()
+                  G.trigger('preFixed.ScrollToFixed')
+                  w()
+                  f = -1
+                  G.trigger('fixed.ScrollToFixed')
                 }
-            }
-            var I = a(window).scrollLeft();
-            var L = a(window).scrollTop();
-            var J = n();
-            if (l.options.minWidth && a(window).width() < l.options.minWidth) {
+                v(I)
+              } else {
                 if (!h() || !K) {
-                    o();
-                    G.trigger("preUnfixed.ScrollToFixed");
-                    k();
-                    G.trigger("unfixed.ScrollToFixed")
+                  o()
+                  G.trigger('preUnfixed.ScrollToFixed')
+                  k()
+                  G.trigger('unfixed.ScrollToFixed')
                 }
+              }
+            }
+          } else {
+            if (J > 0) {
+              if (
+                L + a(window).height() - G.outerHeight(true) >=
+                J - (s() || -m())
+              ) {
+                if (p()) {
+                  o()
+                  G.trigger('preUnfixed.ScrollToFixed')
+                  if (E === 'absolute') {
+                    b()
+                  } else {
+                    k()
+                  }
+                  G.trigger('unfixed.ScrollToFixed')
+                }
+              } else {
+                if (!p()) {
+                  o()
+                  G.trigger('preFixed.ScrollToFixed')
+                  w()
+                }
+                v(I)
+                G.trigger('fixed.ScrollToFixed')
+              }
             } else {
-                if (l.options.maxWidth && a(window).width() > l.options.maxWidth) {
-                    if (!h() || !K) {
-                        o();
-                        G.trigger("preUnfixed.ScrollToFixed");
-                        k();
-                        G.trigger("unfixed.ScrollToFixed")
-                    }
-                } else {
-                    if (l.options.bottom == -1) {
-                        if (J > 0 && L >= J - s()) {
-                            if (!x() || !K) {
-                                o();
-                                G.trigger("preAbsolute.ScrollToFixed");
-                                b();
-                                G.trigger("unfixed.ScrollToFixed")
-                            }
-                        } else {
-                            if (L >= D - s()) {
-                                if (!p() || !K) {
-                                    o();
-                                    G.trigger("preFixed.ScrollToFixed");
-                                    w();
-                                    f = -1;
-                                    G.trigger("fixed.ScrollToFixed")
-                                }
-                                v(I)
-                            } else {
-                                if (!h() || !K) {
-                                    o();
-                                    G.trigger("preUnfixed.ScrollToFixed");
-                                    k();
-                                    G.trigger("unfixed.ScrollToFixed")
-                                }
-                            }
-                        }
-                    } else {
-                        if (J > 0) {
-                            if (L + a(window).height() - G.outerHeight(true) >= J - (s() || -m())) {
-                                if (p()) {
-                                    o();
-                                    G.trigger("preUnfixed.ScrollToFixed");
-                                    if (E === "absolute") {
-                                        b()
-                                    } else {
-                                        k()
-                                    }
-                                    G.trigger("unfixed.ScrollToFixed")
-                                }
-                            } else {
-                                if (!p()) {
-                                    o();
-                                    G.trigger("preFixed.ScrollToFixed");
-                                    w()
-                                }
-                                v(I);
-                                G.trigger("fixed.ScrollToFixed")
-                            }
-                        } else {
-                            v(I)
-                        }
-                    }
-                }
+              v(I)
             }
+          }
         }
-
-        function m() {
-            if (!l.options.bottom) {
-                return 0
-            }
-            return l.options.bottom
-        }
-
-        function o() {
-            var I = G.css("position");
-            if (I == "absolute") {
-                G.trigger("postAbsolute.ScrollToFixed")
-            } else {
-                if (I == "fixed") {
-                    G.trigger("postFixed.ScrollToFixed")
-                } else {
-                    G.trigger("postUnfixed.ScrollToFixed")
-                }
-            }
-        }
-        var C = function(I) {
-            if (G.is(":visible")) {
-                c = false;
-                A()
-            }
-        };
-        var F = function(I) {
-            (!!window.requestAnimationFrame) ? requestAnimationFrame(A): A()
-        };
-        var B = function() {
-            var J = document.body;
-            if (document.createElement && J && J.appendChild && J.removeChild) {
-                var L = document.createElement("div");
-                if (!L.getBoundingClientRect) {
-                    return null
-                }
-                L.innerHTML = "x";
-                L.style.cssText = "position:fixed;top:100px;";
-                J.appendChild(L);
-                var M = J.style.height,
-                    N = J.scrollTop;
-                J.style.height = "3000px";
-                J.scrollTop = 500;
-                var I = L.getBoundingClientRect().top;
-                J.style.height = M;
-                var K = (I === 100);
-                J.removeChild(L);
-                J.scrollTop = N;
-                return K
-            }
-            return null
-        };
-        var r = function(I) {
-            I = I || window.event;
-            if (I.preventDefault) {
-                I.preventDefault()
-            }
-            I.returnValue = false
-        };
-        l.init = function() {
-            l.options = a.extend({}, a.ScrollToFixed.defaultOptions, i);
-            y = G.css("z-index");
-            l.$el.css("z-index", l.options.zIndex);
-            t = a("<div />");
-            H = G.css("position");
-            E = G.css("position");
-            e = G.css("top");
-            if (h()) {
-                l.$el.after(t)
-            }
-            a(window).bind("resize.ScrollToFixed", C);
-            a(window).bind("scroll.ScrollToFixed", F);
-            if ("ontouchmove" in window) {
-                a(window).bind("touchmove.ScrollToFixed", A)
-            }
-            if (l.options.preFixed) {
-                G.bind("preFixed.ScrollToFixed", l.options.preFixed)
-            }
-            if (l.options.postFixed) {
-                G.bind("postFixed.ScrollToFixed", l.options.postFixed)
-            }
-            if (l.options.preUnfixed) {
-                G.bind("preUnfixed.ScrollToFixed", l.options.preUnfixed)
-            }
-            if (l.options.postUnfixed) {
-                G.bind("postUnfixed.ScrollToFixed", l.options.postUnfixed)
-            }
-            if (l.options.preAbsolute) {
-                G.bind("preAbsolute.ScrollToFixed", l.options.preAbsolute)
-            }
-            if (l.options.postAbsolute) {
-                G.bind("postAbsolute.ScrollToFixed", l.options.postAbsolute)
-            }
-            if (l.options.fixed) {
-                G.bind("fixed.ScrollToFixed", l.options.fixed)
-            }
-            if (l.options.unfixed) {
-                G.bind("unfixed.ScrollToFixed", l.options.unfixed)
-            }
-            if (l.options.spacerClass) {
-                t.addClass(l.options.spacerClass)
-            }
-            G.bind("resize.ScrollToFixed", function() {
-                t.height(G.height())
-            });
-            G.bind("scroll.ScrollToFixed", function() {
-                G.trigger("preUnfixed.ScrollToFixed");
-                k();
-                G.trigger("unfixed.ScrollToFixed");
-                A()
-            });
-            G.bind("detach.ScrollToFixed", function(I) {
-                r(I);
-                G.trigger("preUnfixed.ScrollToFixed");
-                k();
-                G.trigger("unfixed.ScrollToFixed");
-                a(window).unbind("resize.ScrollToFixed", C);
-                a(window).unbind("scroll.ScrollToFixed", F);
-                G.unbind(".ScrollToFixed");
-                t.remove();
-                l.$el.removeData("ScrollToFixed")
-            });
-            C()
-        };
-        l.init()
-    };
-    a.ScrollToFixed.defaultOptions = {
-        marginTop: 0,
-        limit: 0,
-        bottom: -1,
-        zIndex: 1000,
-        baseClassName: "scroll-to-fixed-fixed"
-    };
-    a.fn.scrollToFixed = function(b) {
-        return this.each(function() {
-            (new a.ScrollToFixed(this, b))
-        })
+      }
     }
-})(jQuery);
+
+    function m() {
+      if (!l.options.bottom) {
+        return 0
+      }
+      return l.options.bottom
+    }
+
+    function o() {
+      var I = G.css('position')
+      if (I == 'absolute') {
+        G.trigger('postAbsolute.ScrollToFixed')
+      } else {
+        if (I == 'fixed') {
+          G.trigger('postFixed.ScrollToFixed')
+        } else {
+          G.trigger('postUnfixed.ScrollToFixed')
+        }
+      }
+    }
+    var C = function(I) {
+      if (G.is(':visible')) {
+        c = false
+        A()
+      }
+    }
+    var F = function(I) {
+      !!window.requestAnimationFrame ? requestAnimationFrame(A) : A()
+    }
+    var B = function() {
+      var J = document.body
+      if (document.createElement && J && J.appendChild && J.removeChild) {
+        var L = document.createElement('div')
+        if (!L.getBoundingClientRect) {
+          return null
+        }
+        L.innerHTML = 'x'
+        L.style.cssText = 'position:fixed;top:100px;'
+        J.appendChild(L)
+        var M = J.style.height,
+          N = J.scrollTop
+        J.style.height = '3000px'
+        J.scrollTop = 500
+        var I = L.getBoundingClientRect().top
+        J.style.height = M
+        var K = I === 100
+        J.removeChild(L)
+        J.scrollTop = N
+        return K
+      }
+      return null
+    }
+    var r = function(I) {
+      I = I || window.event
+      if (I.preventDefault) {
+        I.preventDefault()
+      }
+      I.returnValue = false
+    }
+    l.init = function() {
+      l.options = a.extend({}, a.ScrollToFixed.defaultOptions, i)
+      y = G.css('z-index')
+      l.$el.css('z-index', l.options.zIndex)
+      t = a('<div />')
+      H = G.css('position')
+      E = G.css('position')
+      e = G.css('top')
+      if (h()) {
+        l.$el.after(t)
+      }
+      a(window).bind('resize.ScrollToFixed', C)
+      a(window).bind('scroll.ScrollToFixed', F)
+      if ('ontouchmove' in window) {
+        a(window).bind('touchmove.ScrollToFixed', A)
+      }
+      if (l.options.preFixed) {
+        G.bind('preFixed.ScrollToFixed', l.options.preFixed)
+      }
+      if (l.options.postFixed) {
+        G.bind('postFixed.ScrollToFixed', l.options.postFixed)
+      }
+      if (l.options.preUnfixed) {
+        G.bind('preUnfixed.ScrollToFixed', l.options.preUnfixed)
+      }
+      if (l.options.postUnfixed) {
+        G.bind('postUnfixed.ScrollToFixed', l.options.postUnfixed)
+      }
+      if (l.options.preAbsolute) {
+        G.bind('preAbsolute.ScrollToFixed', l.options.preAbsolute)
+      }
+      if (l.options.postAbsolute) {
+        G.bind('postAbsolute.ScrollToFixed', l.options.postAbsolute)
+      }
+      if (l.options.fixed) {
+        G.bind('fixed.ScrollToFixed', l.options.fixed)
+      }
+      if (l.options.unfixed) {
+        G.bind('unfixed.ScrollToFixed', l.options.unfixed)
+      }
+      if (l.options.spacerClass) {
+        t.addClass(l.options.spacerClass)
+      }
+      G.bind('resize.ScrollToFixed', function() {
+        t.height(G.height())
+      })
+      G.bind('scroll.ScrollToFixed', function() {
+        G.trigger('preUnfixed.ScrollToFixed')
+        k()
+        G.trigger('unfixed.ScrollToFixed')
+        A()
+      })
+      G.bind('detach.ScrollToFixed', function(I) {
+        r(I)
+        G.trigger('preUnfixed.ScrollToFixed')
+        k()
+        G.trigger('unfixed.ScrollToFixed')
+        a(window).unbind('resize.ScrollToFixed', C)
+        a(window).unbind('scroll.ScrollToFixed', F)
+        G.unbind('.ScrollToFixed')
+        t.remove()
+        l.$el.removeData('ScrollToFixed')
+      })
+      C()
+    }
+    l.init()
+  }
+  a.ScrollToFixed.defaultOptions = {
+    marginTop: 0,
+    limit: 0,
+    bottom: -1,
+    zIndex: 1000,
+    baseClassName: 'scroll-to-fixed-fixed'
+  }
+  a.fn.scrollToFixed = function(b) {
+    return this.each(function() {
+      new a.ScrollToFixed(this, b)
+    })
+  }
+})(jQuery)
 
 /**
  * jquery.hoverdir.js v1.1.0
@@ -1241,135 +1370,143 @@ if (typeof Object.create !== 'function') {
  * Copyright 2012, Codrops
  * http://www.codrops.com
  */
- // Number Counter
-(function($) {
-    $.fn.countTo = function(options) {
-        options = options || {};
-        return $(this).each(function() {
-            var settings = $.extend({}, $.fn.countTo.defaults, {
-                from: $(this).data('from'),
-                to: $(this).data('num'),
-                speed: $(this).data('speed'),
-                refreshInterval: $(this).data('refresh-interval'),
-                decimals: $(this).data('decimals')
-            }, options);
-            var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                increment = (settings.to - settings.from) / loops;
-            var self = this,
-                $self = $(this),
-                loopCount = 0,
-                value = settings.from,
-                data = $self.data('countTo') || {};
-            $self.data('countTo', data);
-            if (data.interval) {
-                clearInterval(data.interval)
-            }
-            data.interval = setInterval(updateTimer, settings.refreshInterval);
-            render(value);
+// Number Counter
+;(function($) {
+  $.fn.countTo = function(options) {
+    options = options || {}
+    return $(this).each(function() {
+      var settings = $.extend(
+        {},
+        $.fn.countTo.defaults,
+        {
+          from: $(this).data('from'),
+          to: $(this).data('num'),
+          speed: $(this).data('speed'),
+          refreshInterval: $(this).data('refresh-interval'),
+          decimals: $(this).data('decimals')
+        },
+        options
+      )
+      var loops = Math.ceil(settings.speed / settings.refreshInterval),
+        increment = (settings.to - settings.from) / loops
+      var self = this,
+        $self = $(this),
+        loopCount = 0,
+        value = settings.from,
+        data = $self.data('countTo') || {}
+      $self.data('countTo', data)
+      if (data.interval) {
+        clearInterval(data.interval)
+      }
+      data.interval = setInterval(updateTimer, settings.refreshInterval)
+      render(value)
 
-            function updateTimer() {
-                value += increment;
-                loopCount++;
-                render(value);
-                if (typeof(settings.onUpdate) == 'function') {
-                    settings.onUpdate.call(self, value)
-                }
-                if (loopCount >= loops) {
-                    $self.removeData('countTo');
-                    clearInterval(data.interval);
-                    value = settings.to;
-                    if (typeof(settings.onComplete) == 'function') {
-                        settings.onComplete.call(self, value)
-                    }
-                }
-            }
+      function updateTimer() {
+        value += increment
+        loopCount++
+        render(value)
+        if (typeof settings.onUpdate == 'function') {
+          settings.onUpdate.call(self, value)
+        }
+        if (loopCount >= loops) {
+          $self.removeData('countTo')
+          clearInterval(data.interval)
+          value = settings.to
+          if (typeof settings.onComplete == 'function') {
+            settings.onComplete.call(self, value)
+          }
+        }
+      }
 
-            function render(value) {
-                var formattedValue = settings.formatter.call(self, value, settings);
-                $self.text(formattedValue)
-            }
-        })
-    };
-    $.fn.countTo.defaults = {
-        from: 0,
-        to: 0,
-        speed: 3000,
-        refreshInterval: 100,
-        decimals: 0,
-        formatter: formatter,
-        onUpdate: null,
-        onComplete: null
-    };
+      function render(value) {
+        var formattedValue = settings.formatter.call(self, value, settings)
+        $self.text(formattedValue)
+      }
+    })
+  }
+  $.fn.countTo.defaults = {
+    from: 0,
+    to: 0,
+    speed: 3000,
+    refreshInterval: 100,
+    decimals: 0,
+    formatter: formatter,
+    onUpdate: null,
+    onComplete: null
+  }
 
-    function formatter(value, settings) {
-        return value.toFixed(settings.decimals)
-    }
-}(jQuery));
+  function formatter(value, settings) {
+    return value.toFixed(settings.decimals)
+  }
+})(jQuery)
+;(function($) {
+  $.fn.countToD = function(options) {
+    options = options || {}
+    return $(this).each(function() {
+      var settings = $.extend(
+        {},
+        $.fn.countToD.defaults,
+        {
+          from: $(this).data('from'),
+          to: $(this).data('num'),
+          speed: $(this).data('speed'),
+          refreshInterval: $(this).data('refresh-interval'),
+          decimals: $(this).data('decimals')
+        },
+        options
+      )
+      var loops = Math.ceil(settings.speed / settings.refreshInterval),
+        increment = (settings.to - settings.from) / loops
+      var self = this,
+        $self = $(this),
+        loopCount = 0,
+        value = settings.from,
+        data = $self.data('countToD') || {}
+      $self.data('countToD', data)
+      if (data.interval) {
+        clearInterval(data.interval)
+      }
+      data.interval = setInterval(updateTimer, settings.refreshInterval)
+      render(value)
 
-(function($) {
-    $.fn.countToD = function(options) {
-        options = options || {};
-        return $(this).each(function() {
-            var settings = $.extend({}, $.fn.countToD.defaults, {
-                from: $(this).data('from'),
-                to: $(this).data('num'),
-                speed: $(this).data('speed'),
-                refreshInterval: $(this).data('refresh-interval'),
-                decimals: $(this).data('decimals')
-            }, options);
-            var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                increment = (settings.to - settings.from) / loops;
-            var self = this,
-                $self = $(this),
-                loopCount = 0,
-                value = settings.from,
-                data = $self.data('countToD') || {};
-            $self.data('countToD', data);
-            if (data.interval) {
-                clearInterval(data.interval)
-            }
-            data.interval = setInterval(updateTimer, settings.refreshInterval);
-            render(value);
+      function updateTimer() {
+        value += increment
+        loopCount++
+        render(value)
+        if (typeof settings.onUpdate == 'function') {
+          settings.onUpdate.call(self, value)
+        }
+        if (loopCount >= loops) {
+          $self.removeData('countTo')
+          clearInterval(data.interval)
+          value = settings.to
+          if (typeof settings.onComplete == 'function') {
+            settings.onComplete.call(self, value)
+          }
+        }
+      }
 
-            function updateTimer() {
-                value += increment;
-                loopCount++;
-                render(value);
-                if (typeof(settings.onUpdate) == 'function') {
-                    settings.onUpdate.call(self, value)
-                }
-                if (loopCount >= loops) {
-                    $self.removeData('countTo');
-                    clearInterval(data.interval);
-                    value = settings.to;
-                    if (typeof(settings.onComplete) == 'function') {
-                        settings.onComplete.call(self, value)
-                    }
-                }
-            }
+      function render(value) {
+        var formattedValue = settings.formatter.call(self, value, settings)
+        $self.text(formattedValue)
+      }
+    })
+  }
+  $.fn.countToD.defaults = {
+    from: 0,
+    to: 0,
+    speed: 3000,
+    refreshInterval: 100,
+    decimals: 1,
+    formatter: formatter,
+    onUpdate: null,
+    onComplete: null
+  }
 
-            function render(value) {
-                var formattedValue = settings.formatter.call(self, value, settings);
-                $self.text(formattedValue)
-            }
-        })
-    };
-    $.fn.countToD.defaults = {
-        from: 0,
-        to: 0,
-        speed: 3000,
-        refreshInterval: 100,
-        decimals: 1,
-        formatter: formatter,
-        onUpdate: null,
-        onComplete: null
-    };
-
-    function formatter(value, settings) {
-        return value.toFixed(settings.decimals)
-    }
-}(jQuery));
-
+  function formatter(value, settings) {
+    return value.toFixed(settings.decimals)
+  }
+})(jQuery)
 
 /**
  * jQuery.browser.mobile (http://detectmobilebrowser.com/)

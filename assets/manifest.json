@@ -1,0 +1,12 @@
+{
+  "short_name": "Reed Jones",
+  "name": "Reed Jones | Developer",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "background_color": "#247ba0"
+}
