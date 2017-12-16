@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "watch": "gulp"
   },
   "author": "Reed Jones",
   "license": "ISC",
@@ -17,6 +18,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-typescript": "^3.1.6",
-    "gulp-uglify": "^2.1.2"
-  }
+    "gulp-uglify": "^2.1.2",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {}
 }

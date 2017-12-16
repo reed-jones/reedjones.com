@@ -59,6 +59,7 @@ gulp.task('html-min', function() {
     .pipe(connect.reload());
 });
 
+/**************************** STATIC *************************************/
 gulp.task('copy', function () {
     gulp.src('assets/**/*')
         .pipe(gulp.dest('_public/'));
