@@ -17,17 +17,18 @@
     <link rel="icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
     <script>
-        if ('serviceWorker' in navigator) { 
-          window.addEventListener('load', function() {   
-            navigator.serviceWorker.register('/sw.js').then(
-              function(registration) { 
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope); }, 
-              function(err) { 
-                // registration failed :( 
-                console.log('ServiceWorker registration failed: ', err); 
-              }); 
-          });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
         }
     </script>
 </head>
@@ -49,7 +50,8 @@
                     <p>Learning stuff, solving problems, finding solutions.</p>
                     <h1>Welcome</h1>
                     <h3>My name is Reed Jones.
-                        <br>I am a student and aspiring developer.</h3>
+                        <!-- <br>I am a student and aspiring developer.</h3> -->
+                        <br>Developer and Technology Enthusiast.</h3>
                     <a href="#skillsSection" class="btn custom-scroll-link">
                         <span>Let's start</span>
                     </a>
@@ -363,8 +365,9 @@
                         <div class="section-title">
                             <h2> About me</h2>
                             <p>
-                                I am studing Computer Engineering Technologies at the Northern Alberta Institute of Technology in Edmonton, Alberta. I'm
-                                looking forward to starting my final semester in September 2017.
+                                A recent graduate of the Computer Engineering Technologies program at the Northern Alberta Institute of Technology in Edmonton,
+                                Alberta. I'm looking forward to progressing my career as a developer, and helping people
+                                find solutions to their problems.
                             </p>
                             <div class="clearfix"></div>
                             <span class="bold-separator"></span>
@@ -390,16 +393,13 @@
                                         come naturally to me, I am always ready to try something new.
                                     </p>
                                     <p>
-                                        I'm now studying Computer Engineering Technology at the Northern Alberta Institute of Technology in Edmonton, Alberta. Tree
-                                        planting to a tech career might seem like a leap, but I know I am right where I belong.
-                                        I’ve always been interested in technology. I can remember reading my dad’s HTML documentation,
+                                        I have recently graduated from the Computer Engineering Technology program at the Northern Alberta Institute of Technology
+                                        in Edmonton, Alberta and maintained a 4.0 GPA throughout the course. Tree planting
+                                        to a tech career might seem like a leap, but I know I am right where I belong. I’ve
+                                        always been interested in technology. I can remember reading my dad’s HTML documentation,
                                         circa 1998, and installed my first operating system shortly after. I won the “The
                                         Biggest Geek” award at my year end tree planting party for always blasting tech podcasts
                                         while I worked.
-                                    </p>
-                                    <p>
-                                        I am preparing to start my final semester In September 2017 and have thus far maintained a 4.0 GPA, a fact which I am rather
-                                        proud of.
                                     </p>
                                 </div>
                             </div>
@@ -454,18 +454,17 @@
                                         <div class="resum-header educ">
                                             <i class="fa icon-graduation-cap"></i>
                                             <h3>Northern Alberta Institute of Technology</h3>
-                                            <span>Expected 2017</span>
+                                            <span>Graduated 2017</span>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <h4>Computer Engineering Technology</h4>
                                         <p>
-                                            While studying at NAIT, I have maintain a 4.0 GPA. I will be starting my final semester in September 2017, and graduating
-                                            in December 2017.
+                                            I enjoyed my time at NAIT, I learned so much in the two years I spent there. I'm proud to say my hard work earned a 4.0 GPA.
                                         </p>
                                         <ul>
                                             <li>4.0 GPA</li>
-                                            <li>Graduating 2017</li>
+                                            <li>Graduated Dec 2017</li>
                                         </ul>
                                         <span class="custom-inner-dec"></span>
                                     </div>
