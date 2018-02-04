@@ -1,21 +1,18 @@
 @import 'partials/reset';
-
+@import 'partials/raleway';
+// @import 'partials/montserrat';
 // site-wide variables (colours, fonts etc)
 @import 'partials/Variables';
-
 // base plugins/preloads
 @import 'partials/bootstrap';
 @import 'partials/icomoon';
-
 // general page stylings
 @import 'partials/general';
 @import 'partials/typography';
-
 @import 'partials/contentStyles';
 // sidebar
 @import 'partials/fixedColumn';
 @import 'partials/buttons';
-
 // Page sections
 @import 'partials/hero';
 @import 'partials/skills';

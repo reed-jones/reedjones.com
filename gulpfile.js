@@ -1,9 +1,9 @@
 // 'use strict';
 
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	cleanCSS = require('gulp-clean-css'),
-	uglify = require('gulp-uglify'),
+  sass = require('gulp-sass'),
+  cleanCSS = require('gulp-clean-css'),
+  uglify = require('gulp-uglify'),
   connect = require('gulp-connect'),
   htmlmin = require('gulp-htmlmin'),
   concat = require('gulp-concat'),
@@ -15,7 +15,7 @@ gulp.task('default', ['build', 'connect', 'watch-sass', 'watch-js', 'watch-html'
 
 gulp.task('build', ['copy', 'sass', 'concat-js', 'html-min']);
 
-gulp.task('connect', function() {
+gulp.task('connect', function () {
   connect.server({
     root: '_public',
     livereload: true
@@ -24,24 +24,26 @@ gulp.task('connect', function() {
 
 /**************************** SCSS *************************************/
 gulp.task('watch-sass', () => {
-	gulp.watch('scss/**/*.scss', ['sass']);
+  gulp.watch('scss/**/*.scss', ['sass']);
 });
 gulp.task('sass', () => {
   return gulp.src('scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest('_public/css'))
     .pipe(connect.reload());
 });
 
 /************************** JAVASCRIPT ***************************************/
 gulp.task('watch-js', () => {
-    gulp.watch('scripts/**/*.js', ['concat-js']);
+  gulp.watch('scripts/**/*.js', ['concat-js']);
 });
 
-gulp.task('concat-js', function() {
-  return gulp.src(['scripts/plugins.js','scripts/scripts.js', ])
+gulp.task('concat-js', function () {
+  return gulp.src(['scripts/jquery.min.js', 'scripts/plugins.js', 'scripts/scripts.js'])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_public/js'))
@@ -49,18 +51,20 @@ gulp.task('concat-js', function() {
 });
 /******************************* HTML **************************************/
 gulp.task('watch-html', () => {
-    gulp.watch('html/**/*.html', ['html-min']);
+  gulp.watch('html/**/*.html', ['html-min']);
 });
 
-gulp.task('html-min', function() {
+gulp.task('html-min', function () {
   return gulp.src('html/**/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({
+      collapseWhitespace: true
+    }))
     .pipe(gulp.dest('_public'))
     .pipe(connect.reload());
 });
 
 /**************************** STATIC *************************************/
 gulp.task('copy', function () {
-    gulp.src('assets/**/*')
-        .pipe(gulp.dest('_public/'));
+  gulp.src('assets/**/*')
+    .pipe(gulp.dest('_public/'));
 });

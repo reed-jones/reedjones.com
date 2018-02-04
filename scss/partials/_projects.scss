@@ -1,6 +1,7 @@
 .box-item {
   overflow: hidden;
 }
+
 .box-item.vis-det:before {
   content: '';
   position: absolute;
@@ -13,6 +14,7 @@
   opacity: 0;
   visibility: hidden;
 }
+
 .box-item.vis-det a.image-popup,
 .box-item.vis-det a.popgal {
   position: absolute;
@@ -28,18 +30,22 @@
   color: #fff;
   cursor: pointer;
 }
+
 .box-item.vis-det:hover:before {
   opacity: 1;
   visibility: visible;
 }
+
 .box-item.vis-det a.image-popup:hover,
 .box-item.vis-det a.popgal:hover {
   color: #000;
 }
+
 .box-item.vis-det:hover a.image-popup,
 .box-item.vis-det:hover a.popgal {
   top: 50%;
 }
+
 .box-item.vis-det a.image-popup,
 .box-item.vis-det:before,
 .grid-det h3:before,
@@ -49,13 +55,13 @@
 }
 
 #projectsSection h3 {
-  font-weight: 700;
-  font-family: $alternate-font;
+  font-weight: 700; // font-family: $alternate-font;
 }
 
 #projectsSection img {
   margin-bottom: 10px;
 }
+
 #projectsSection p {
   font-size: $font-size-para;
 }
@@ -67,6 +73,7 @@
   padding: 10px 0;
   font-size: $font-size-h3;
 }
+
 .proj-button {
   float: left;
   text-align: left;
