@@ -21,5 +21,9 @@
     "gulp-uglify": "^2.1.2",
     "typescript": "^2.6.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "webploy_config": {
+    "build_script": "build",
+    "dist_dir": "_public"
+  }
 }
