@@ -8,14 +8,10 @@ function makeDivs(){
 
 		title_r = document.createElement("div"),
 		title_t = document.createElement("div"),
-
 		subtitle_t = document.createElement("div"),
 		subtitle_l = document.createElement("div"),
-
 		aboutMe_t = document.createElement("div"),
 		aboutMe_l = document.createElement("div"),
-
-
 		contactMe_t = document.createElement("div");
 
 	title_r.classList.add("titleBorderRight");

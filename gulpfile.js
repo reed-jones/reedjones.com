@@ -11,18 +11,17 @@ var gulp = require('gulp'),
 
 /************************* DEFAULT *************************************/
 
-gulp.task('default', ['build', 'connect', 'watch-sass', 'watch-js', 'watch-html']);
 
-gulp.task('build', ['copy', 'sass', 'concat-js', 'html-min']);
 
-gulp.task('connect', function () {
+
+gulp.task('connect', () => {
   connect.server({
     root: '_public',
     livereload: true
   });
 });
 
-/**************************** SCSS *************************************/
+// /**************************** SCSS *************************************/
 gulp.task('watch-sass', () => {
   gulp.watch('scss/**/*.scss', ['sass']);
 });
@@ -37,24 +36,24 @@ gulp.task('sass', () => {
     .pipe(connect.reload());
 });
 
-/************************** JAVASCRIPT ***************************************/
+// /************************** JAVASCRIPT ***************************************/
 gulp.task('watch-js', () => {
   gulp.watch('scripts/**/*.js', ['concat-js']);
 });
 
-gulp.task('concat-js', function () {
+gulp.task('concat-js', done => {
   return gulp.src(['scripts/jquery.min.js', 'scripts/plugins.js', 'scripts/scripts.js'])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_public/js'))
     .pipe(connect.reload());
 });
-/******************************* HTML **************************************/
+// /******************************* HTML **************************************/
 gulp.task('watch-html', () => {
   gulp.watch('html/**/*.html', ['html-min']);
 });
 
-gulp.task('html-min', function () {
+gulp.task('html-min', done => {
   return gulp.src('html/**/*.html')
     .pipe(htmlmin({
       collapseWhitespace: true
@@ -64,7 +63,10 @@ gulp.task('html-min', function () {
 });
 
 /**************************** STATIC *************************************/
-gulp.task('copy', function () {
-  gulp.src('assets/**/*')
+gulp.task('copy', done => {
+  return gulp.src('assets/**/*')
     .pipe(gulp.dest('_public/'));
 });
+
+gulp.task('build', gulp.series('copy', 'sass', 'concat-js', 'html-min'));
+gulp.task('default', gulp.series('build', 'connect', 'watch-sass', 'watch-js', 'watch-html'));
