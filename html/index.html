@@ -46,7 +46,7 @@
 
             <div class="hero-wrap-item">
                 <div class="fl-wrap section-entry">
-                    <p>Learning stuff, solving problems, finding solutions.</p>
+                    <p>Learning things, solving problems, finding solutions.</p>
                     <h1>Welcome</h1>
                     <h3>My name is Reed Jones.
                         <!-- <br>I am a student and aspiring developer.</h3> -->
@@ -129,7 +129,7 @@
                                     <div class="fl-wrap">
                                         <div class="skillbar-box">
                                             <div class="custom-skillbar-title">
-                                                <span>C#</span>
+                                                <span>Vue</span>
                                             </div>
                                             <div class="skill-bar-percent">90%</div>
                                             <br>
@@ -138,11 +138,19 @@
                                             </div>
 
                                             <div class="custom-skillbar-title">
+                                                <span>Laravel</span>
+                                            </div>
+                                            <div class="skill-bar-percent">80%</div>
+                                            <div class="skillbar-bg" data-percent="80%">
+                                                <div class="custom-skillbar"></div>
+                                            </div>
+
+                                            <div class="custom-skillbar-title">
                                                 <span>SQL</span>
                                             </div>
-                                            <div class="skill-bar-percent">75%</div>
+                                            <div class="skill-bar-percent">65%</div>
                                             <br>
-                                            <div class="skillbar-bg" data-percent="75%">
+                                            <div class="skillbar-bg" data-percent="65%">
                                                 <div class="custom-skillbar"></div>
                                             </div>
 
@@ -155,7 +163,7 @@
                                             </div>
 
                                             <div class="custom-skillbar-title">
-                                                <span>JavaScript &amp; jQuery</span>
+                                                <span>JavaScript</span>
                                             </div>
                                             <div class="skill-bar-percent">80%</div>
                                             <div class="skillbar-bg" data-percent="80%">
@@ -167,14 +175,6 @@
                                             </div>
                                             <div class="skill-bar-percent">90%</div>
                                             <div class="skillbar-bg" data-percent="90%">
-                                                <div class="custom-skillbar"></div>
-                                            </div>
-
-                                            <div class="custom-skillbar-title">
-                                                <span>Python</span>
-                                            </div>
-                                            <div class="skill-bar-percent">60%</div>
-                                            <div class="skillbar-bg" data-percent="60%">
                                                 <div class="custom-skillbar"></div>
                                             </div>
                                         </div>
@@ -197,6 +197,73 @@
                         <div class="fl-wrap serv-wrap">
                             <div class="row">
                                 <div class="col-md-12">
+
+
+                                    <div class="row project-details">
+                                        <div class="col-md-4">
+                                            <div class="box-item">
+                                                <h3>Phase</h3>
+                                                <img data-src="images/projects/phase.png" class="lozad respimg" alt="Phase Framework">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h3>Details</h3>
+                                            <p>
+                                                Phase aims to make building Laravel backed Vue apps easier than ever.
+                                                Its magic sauce comes in two flavours, first it generates a Vue-Router
+                                                outes configuration from your <code>routes/web.php</code>, so you get
+                                                an easy SPA experience out of the box, just by writing the Laravel
+                                                you know and love. Second it has several small helper utilities available
+                                                that allow you to store data into your Vuex state, right from the PHP code
+                                                in your Laravel app.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h3>Highlights</h3>
+                                            <ul class="dec-list">
+                                                <li>Laravel</li>
+                                                <li>Vue</li>
+                                            </ul>
+                                            <a href="https://phased.dev/">
+                                                <span class="proj-button">Check it out</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row project-details">
+                                        <div class="col-md-4">
+                                            <div class="box-item">
+                                                <h3>Svelte Server</h3>
+                                                <img data-src="images/projects/svelte-server.png" class="lozad respimg" alt="Svelte Server">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h3>Details</h3>
+                                            <p>
+                                                This was a little experiment I hacked on over a weekend recently.
+                                                It uses Rollup & Koa behind the scenes to give a developer an
+                                                easy & fast environment for a Svelte project. It uses a file
+                                                system based routing mechanism so you can create new pages
+                                                just by saving a new file. It also uses on demand compilation,
+                                                which basically means there is (nearly) no build step during development.
+                                                The first visitor to the page will trigger the build, but only for
+                                                that page, which means build times are pretty fast, and most users
+                                                (all except the first) get the fully compiled assets anyways. It
+                                                doesn't require any configuration to get started, and can run directly
+                                                from <code>npx</code> so you don't even need a node_modules folder.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h3>Highlights</h3>
+                                            <ul class="dec-list">
+                                                <li>Svelte</li>
+                                                <li>Static Site Generator</li>
+                                            </ul>
+                                            <a href="https://svelte-server.netlify.app/">
+                                                <span class="proj-button">Check it out</span>
+                                            </a>
+                                        </div>
+                                    </div>
 
                                     <div class="row project-details">
                                         <div class="col-md-4">
@@ -364,7 +431,7 @@
                         <div class="section-title">
                             <h2> About me</h2>
                             <p>
-                                A recent graduate of the Computer Engineering Technologies program at the Northern Alberta Institute of Technology in Edmonton,
+                                A graduate of the Computer Engineering Technologies program at the Northern Alberta Institute of Technology in Edmonton,
                                 Alberta. I'm looking forward to progressing my career as a developer, and helping people
                                 find solutions to their problems.
                             </p>
@@ -381,7 +448,8 @@
                                 <div class="col-md-6">
                                     <h4 class="text-subtitle">Reed Jones</h4>
                                     <h3 class="text-title">
-                                        <span>Student</span> Developer</h3>
+                                        <span>Developer</span>
+                                    </h3>
                                     <p>
                                         Growing up in a small town in BC, Canada, I spent most of my free time outside. After graduating High School, I spent a few
                                         years travelling. Living in New Zealand and Nicaragua were my two most life changing
@@ -392,7 +460,7 @@
                                         come naturally to me, I am always ready to try something new.
                                     </p>
                                     <p>
-                                        I have recently graduated from the Computer Engineering Technology program at the Northern Alberta Institute of Technology
+                                        In 2017 I graduated from the Computer Engineering Technology program at the Northern Alberta Institute of Technology
                                         in Edmonton, Alberta and maintained a 4.0 GPA throughout the course. Tree planting
                                         to a tech career might seem like a leap, but I know I am right where I belong. I’ve
                                         always been interested in technology. I can remember reading my dad’s HTML documentation,
@@ -472,6 +540,55 @@
 
                             <h2>Work History</h2>
 
+                            <div class="custom-inner">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="resum-header workres">
+                                            <i class="fa icon-briefcase"></i>
+                                            <h3>Valley Museum &amp; Archive Society</h3>
+                                            <span>2018 - Present</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4>Developer</h4>
+                                        <p>
+                                            My role at pderas is always evolving, with interesting new challenges
+                                            around every corner. I have built desktop applications using Electron,
+                                            developed mobile apps that are deployed to both Google Play, and
+                                            the Apple App store. Helped design database schemas, and built complex
+                                            interactive user interfaces.
+                                        </p>
+                                        <ul>
+                                            <li>Laravel &amp; Vue Development</li>
+                                            <li>Developing real time multi-user applications</li>
+                                            <li>WordPress Plugin Development</li>
+                                            <li>Mobile Applications</li>
+                                        </ul>
+                                        <span class="custom-inner-dec"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="custom-inner">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="resum-header workres">
+                                            <i class="fa icon-briefcase"></i>
+                                            <h3>Nav Legal</h3>
+                                            <span>2017-2018</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4>Web Developer</h4>
+                                        <p>
+                                            I designed & developed several websites relating to the Nav Legal business.
+                                        </p>
+                                        <ul>
+                                            <li>Developed content & SEO strategy</li>
+                                        </ul>
+                                        <span class="custom-inner-dec"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="custom-inner">
                                 <div class="row">
                                     <div class="col-md-4">
