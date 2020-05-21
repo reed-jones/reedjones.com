@@ -1,6 +1,6 @@
 "use strict";
 
-var CACHE_NAME = "reedjones-cache-v1";
+var CACHE_NAME = "reedjones-cache-v2";
 var urlsToCache = [
   "/",
   "/css/style.min.css",
@@ -12,6 +12,8 @@ var urlsToCache = [
   "/images/projects/minesweep.jpg",
   "/images/projects/movies.jpg",
   "/images/projects/vmas.jpg",
+  "/images/projects/phase.png",
+  "/images/projects/svelte-server.png",
   "/images/column/1.jpg",
   "/images/column/2.jpg",
   "/images/column/4.jpg",
